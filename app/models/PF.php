@@ -1,9 +1,9 @@
 <?php
 
-class Cadidato
+class PessoaFisica
 {
     private $conn;
-    private $table = 'candidatos';
+    private $table = 'pessoas_fisicas';
 
     public function __construct($db)
     {

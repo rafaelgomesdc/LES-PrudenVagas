@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'dbname' => 'db_prudenvagas',
+    'dbname' => 'dbprudenvagas',
     'user' => 'root',
     'pass' => ''
 ];

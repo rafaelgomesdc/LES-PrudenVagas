@@ -35,7 +35,7 @@ class Vaga
 
     public function Delete($cod)
     {
-        $sql = "DELETE FROM {$this->} WHERE cod = :cod";
+        $sql = "DELETE FROM {$this->table} WHERE cod = :cod";
         $stmt = $this->conn->prepare($sql);
 
         return $stmt->execute([':cod' => $cod]);

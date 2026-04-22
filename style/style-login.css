@@ -1,0 +1,323 @@
+body
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0%;
+    background-color: #F6F6F6;
+}
+
+a
+{ text-decoration: none; }
+
+header h1{
+    font-size: xx-large;
+}
+
+header
+{
+    width: 100%;
+    height: auto;
+    background-color: #590C9E;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header h1
+{
+    font-size: 25px;
+    padding-left: 25px;
+    justify-content: space-between;
+}
+
+header a
+{
+    color: white;
+}
+
+header div
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-conteudo{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    font-size: 25px;
+    background-color: white;
+    width: 10%;
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px ;
+    margin-top: 2.75%;
+    right: 0%;
+}
+
+.dropdown-conteudo a{
+    color: black;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-conteudo{
+    display: block;
+}
+
+.dropdown-conteudo a:hover{
+    background-color: lightgray;
+}
+
+.logo{
+    display: flex;
+    flex:1;
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin-left: 10px;
+}
+
+.div-logo{
+    height: 50px;
+    width: 50px;
+    margin: 0% 2% 2% 0%;
+}
+
+/*caixa de login*/
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 425px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.login-box {
+    background: white;
+    width: 425px;
+    padding: 5px 0px 50px 0px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 5px 5px 10px #888;
+}
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 325px;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.submit{
+    width: 350px;
+    background: #590C9E;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-box a {
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: blue;
+    text-decoration: none;
+}
+
+.esqueci{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.esqueci a{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.social-buttons {
+    justify-content: center;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+}
+.social-buttons button {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    margin-left: 5px;
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1%
+}
+
+.img-social{
+    float: left;
+    margin: 1px;
+    width: 25px;
+    height: 25px;
+}
+.dividir{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+  
+.dividir hr {
+    flex: 1;
+    margin: 5px;
+}
+
+
+/*rodapé*/
+footer{
+    width: 100%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+footer .rodape{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+.atendimento{
+    margin: 1.041% 0% 0% 7%;
+    color: #505050;
+    font-size: 85%;
+    width: auto;
+    height: auto;
+}
+
+.sobre{
+    margin: 1.041% 0% 0% 5%;
+    color: #505050;
+    font-size: 85%;
+}
+
+.sociais{
+    margin: 1.041% 1% 0% 5%;
+    color: #505050;
+    font-size: 85%;
+}
+
+.sociais-img{
+    align-items: center;
+    display: flex;
+    flex: 1;
+
+}
+
+.sociais-img img{
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+}
+
+.direito{
+    padding: 2%;
+    width: 70%;
+    margin:0% 0% 0% 11.50%;
+    color: #505050;
+    text-align: center;
+}
+
+.downloads img{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+.downloads{
+    margin: 1.041% 5% 0% 3%;
+    color: #505050;
+    font-size: 85%;
+    width: 100px;
+    height: auto;
+}
+
+/*página esqueci senha*/
+
+.box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 450px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.login-box2 {
+    background: white;
+    width: 450px;
+    margin: 20px 0px 75px 0px;
+    padding: 5px 0px 50px 0px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 5px 5px 10px #888;
+}
+.login-box2 h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.login-box2 input[type="email"],
+.login-box2 input[type="password"] {
+    width: 325px;
+    padding: 10px;
+    margin: 8px 0px 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.login-box2 button {
+    width: 350px;
+    background: #590C9E;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#voltar{
+    margin-left: 5px;
+    display: flex;
+    float: left;
+    width: 25px;
+    height: 25px;
+}

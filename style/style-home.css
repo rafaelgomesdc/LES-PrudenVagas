@@ -1,0 +1,329 @@
+/*
+Cores
+    #F6F6F6
+    #E6E6E6
+    #E6E6E6
+    #CACACA
+*/
+
+/*Geral*/
+body
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    background-color: white;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a
+{ text-decoration: none; }
+
+.home section
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+/*Cabeçalho*/
+header
+{
+    width: 100%;
+    background-color: orangered;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+header h1
+{
+    font-size: 25px;
+    padding-left: 25px;
+    justify-content: space-between;
+}
+
+header a
+{
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+}
+
+header img
+{
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+}
+
+header div
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Navegação*/
+nav
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: rgb(255, 94, 0);
+    justify-content: center;
+    align-items: center;
+}
+
+nav li
+{
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+    align-self: center;
+}
+
+nav a
+{
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+}
+
+/*Carrocel*/
+section .Carrocel
+{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+}
+
+.Carrocel img
+{
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Promocao*/
+section .Promocao
+{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.Promocao img
+{
+    width: 100%;
+    height: auto;
+}
+
+.Categorias a
+{
+    background-color: #E6E6E6;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: black;
+}
+
+/*Descoberta do dia*/
+.Descoberta p, .Produtos p
+{
+    text-align: center;
+    color: orangered;
+    font-size: 30px;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px;
+    border-color: orangered;
+    border-style: solid;
+    justify-self: center;
+}
+
+.Descoberta div, .Produtos div
+{
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 10px #E6E6E6;
+}
+
+.Descoberta div
+{
+    box-shadow: none;
+    margin: 0;
+}
+
+.Lista-de-Produtos p
+{
+    text-align: start;
+    border: 0;
+}
+
+div .Lista-de-Produtos
+{
+    display: flex;
+    flex: 1 1;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    justify-content: center;
+    box-shadow: none;
+}
+
+div .Produto
+{
+    box-shadow: 0 0 5px #E6E6E6;
+    width: 200px;
+    margin-right: 20px;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Produto img
+{
+    width: 180px;
+    height: auto;
+}
+
+.Produto .Titulo
+{
+    font-size: 20px;
+    color: black;
+}
+
+.Produto .Loja
+{
+    font-size: 12px;
+    color: black;
+}
+
+.Produto .Preco
+{
+    font-size: 20px;
+    color: orangered;
+}
+
+/*Footer*/
+footer
+{
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    width: 100%;
+}
+
+footer .rodape
+{
+    background-color: rgb(255, 253, 253);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.atendimento{
+    margin: 1.041% 0% 0% 10%;
+    color: #505050;
+    font-size: 85%;
+    width: auto;
+    height: auto;
+}
+
+.sobre{
+    margin: 1.041% 0% 0% 5%;
+    color: #505050;
+    font-size: 85%;
+}
+
+.rodape div
+{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rodape a
+{
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+.pag{
+    margin: 1.041% 0% 0% 5%;
+    width: 250px;
+    color: #505050;
+    font-size: 85%;
+}
+
+.formas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 250px;
+}
+
+.formas img{
+    width: 50px;
+    height: auto;
+    margin: 10px;
+}
+
+.sociais{
+    margin: 1.041% 5% 0% 1%;
+    color: #505050;
+    font-size: 85%;
+    width: auto;
+    height: auto;
+}
+
+.sociais-img{
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+.sociais-img img{
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+}
+
+.downloads img{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+}
+.downloads{
+    margin: 1.041% 15% 0% 7%;
+    color: #505050;
+    font-size: 85%;
+    width: 100px;
+    height: auto;
+}
+
+footer .direitos
+{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    width: 80%;
+    margin: 0;
+    padding: 1%;
+    border-top: 1px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: darkgray;
+    border-style: solid;
+    font-size: 20px;
+    color: #505050;;
+}
