@@ -17,7 +17,7 @@ class PessoaFisica
             //Registrar
         }
         else{
-            echo . "CPF já cadastrado.";
+            echo "CPF já cadastrado.";
         }
     }
 
