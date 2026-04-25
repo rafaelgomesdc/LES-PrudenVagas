@@ -28,7 +28,7 @@
         <div class="box">
             <div class="login-box">
                 <h1>Cadastrar Candidato</h1>
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="<?= base_url ?>public/index.php?action=cadastrar-pf" enctype="multipart/form-data">
                     <input type="text" placeholder="Nome" name="inputNome" required>
                     <input type="text" placeholder="Sobrenome" name="inputSobrenome" required>
                     <input type="text" placeholder="CPF" name="inputCPF" required>

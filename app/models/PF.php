@@ -12,7 +12,7 @@ class PessoaFisica
 
     public function Registrar($dados)
     {
-        if ($this->Find($cpf) === nul);
+        if ($this->Find($dados['CPF']) === null);
         {
             $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone)";
             $stmt = $this->conn->prepare($sql);
@@ -24,18 +24,17 @@ class PessoaFisica
                 ':rg' => $dados['rg'],
                 ':data_nasc' => $dados['data_nasc'],
                 ':telefone' => $dados['telefone']
-            ])
+            ]);
         }
-        else{
-            echo "CPF já cadastrado.";
-        }
+
+        echo "CPF já cadastrado.";
     }
 
-    public Find($cpf)
+    public function Find($cpf)
     {
         $sql = "SELECT * FROM {$this->table} WHERE cpf = :cpf";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cpf' = $cpf]);
+        $stmt->execute([':cpf' => $cpf]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

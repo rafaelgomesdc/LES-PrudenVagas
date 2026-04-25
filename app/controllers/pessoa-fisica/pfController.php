@@ -18,11 +18,24 @@ class PFController
         $this->vagasModel = new Vaga($db);
     }
 
+    public function ViewCadastrar()
+    {
+        require __DIR__ . "/../../views/pessoa-fisica/cadastrar.php";
+    }
+
     public function Cadastrar()
     {
-        if (isset($_POST['inputCPF']), isset($_POST['inputNome']), isset($_POST['inputSobrenome']), isset($_POST['inputDataNasc']), isset($_POST['inputTelefone']))
+        if (isset($_POST['inputCPF']) && isset($_POST['inputNome']) && isset($_POST['inputSobrenome']) && isset($_POST['inputRG']) && isset($_POST['inputDataNasc']) && isset($_POST['inputTelefone']))
         {
-            $dados = [];
+            $dados = [
+                'CPF' => $_POST['inputCPF'],
+                'nome' => $_POST['inputNome'],
+                'sobrenome' => $_POST['inputSobrenome'],
+                'rg' => $_POST['inputRG'],
+                'data_nasc' => $_POST['inputDataNasc'],
+                'telefone' => $_POST['inputTelefone']
+            ];
+
             $this->pfModel->Registrar($dados);
         }
     }
