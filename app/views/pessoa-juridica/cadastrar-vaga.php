@@ -17,7 +17,7 @@
     <header>
         <div class="header-content">
             <div class="identidade">
-                <img src="assets/img/proprio/logo.png">
+                <img src="assets/img/logo.png">
                 <h1>PrudenVagas</h1>
             </div>
             <h2><a href="../login/select-login.html">Sair</a></h2>
@@ -27,7 +27,7 @@
     <nav>
         <ul>
             <a href="homepage.html"><li>Home</li></a>
-            <a href="mural-vagas.html"><li>Mural de Vagas</li></a>
+            <a href="public/index.php?action=mural-vagas"><li>Mural de Vagas</li></a>
             <a href="#"><li>Empresas</li></a>
             <a href="perfil-candidato.html"><li>Perfil do Candidato</li></a>
             <li class="nav-element-drop">

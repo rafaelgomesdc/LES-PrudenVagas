@@ -12,11 +12,14 @@ class Vaga
 
     public function Store($dados) //Gravar dados
     {
-        $sql = "INSERT INTO {$this->table} () VALUES (:)";
+        $sql = "INSERT INTO {$this->table} (nome, funcao, descricao, quantidade) VALUES (:nome, :funcao, :descricao, :quantidade)";
         $stmt = $this->conn->prepare($sql);
 
         return $stmt->execute([
-            ':' => $dados['']
+            ':nome' => $dados['nome'],
+            ':funcao' => $dados['funcao'],
+            ':descricao' => $dados['descricao'],
+            ':quantidade' => $dados['quantidade']
         ]);
     }
 

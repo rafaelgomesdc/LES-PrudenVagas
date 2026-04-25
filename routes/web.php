@@ -5,6 +5,7 @@ require_once __DIR__ . '/../app/controllers/pessoa-juridica/vagasController.php'
 require_once __DIR__ . '/../app/controllers/pessoa-fisica/pfController.php';
 
 $pjController = new PJController();
+$vagasController = new VagasController();
 
 $action = $_GET['action'] ?? 'view-cadastrar-pj';
 
