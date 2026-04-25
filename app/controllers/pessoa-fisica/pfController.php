@@ -19,7 +19,13 @@ class PFController
     }
 
     public function Cadastrar()
-    {}
+    {
+        if (isset($_POST['inputCPF']), isset($_POST['inputNome']), isset($_POST['inputSobrenome']), isset($_POST['inputDataNasc']), isset($_POST['inputTelefone']))
+        {
+            $dados = [];
+            $this->pfModel->Registrar($dados);
+        }
+    }
 }
 
 ?>

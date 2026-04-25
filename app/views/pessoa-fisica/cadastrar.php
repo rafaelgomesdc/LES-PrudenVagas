@@ -35,8 +35,8 @@
                     <input type="text" placeholder="RG" name="inputRG" required>
                     <label for="Data" style="display: block;">Data de Nascimento:</label>
                     <br>
-                    <input type="date" id="Data" placeholder="Data Nascimento" name="inputDataNasc">
-                    <input type="text" placeholder="Telefone" name="inputTelefone">
+                    <input type="date" id="Data" placeholder="Data Nascimento" name="inputDataNasc" require>
+                    <input type="text" placeholder="Telefone" name="inputTelefone" require>
                     <select name="inputEnsino" id="selectOpcoes" onchange="gerenciarCampos()">
                         <option value="Nada">Escolha o Nível de Escolaridade</option>
                         <option value="FundInco">Ensino Fundamental Incompleto</option>
