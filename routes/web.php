@@ -43,6 +43,8 @@ switch ($action)
         $pfController->Login();
         break;
 
+    //Vagas
+    
     //Administrador
     case 'view-administrador-gerenciamento':
         $admController->ViewGerenciamento();
