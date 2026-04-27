@@ -22,8 +22,10 @@ class PJController
 
     private function ChecarAutorizacao()
     {
-        if (!isset($_SESSION['usuario']) && $_SESSION['tipo'] == "pj")
+        if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
         {
+            session_destroy();
+            
             echo "não logado";
             header('Location: ?action=view-login-pj');
             exit;

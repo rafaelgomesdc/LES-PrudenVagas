@@ -33,8 +33,14 @@ switch ($action)
     case 'view-cadastrar-pf':
         $pfController->ViewCadastrar();
         break;
+    case 'view-login-pf':
+        $pfController->ViewLogin();
+        break;
     case 'cadastrar-pf':
         $pfController->Cadastrar();
+        break;
+    case 'login-pf':
+        $pfController->Login();
         break;
 
     //Administrador

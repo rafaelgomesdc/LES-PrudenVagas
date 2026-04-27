@@ -14,7 +14,7 @@ class PessoaFisica
     {
         if ($this->Find($dados['CPF']) === null);
         {
-            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone)";
+            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone, senha) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone, :senha)";
             $stmt = $this->conn->prepare($sql);
 
             return $stmt->execute([
@@ -23,7 +23,8 @@ class PessoaFisica
                 ':sobrenome' => $dados['sobrenome'],
                 ':rg' => $dados['rg'],
                 ':data_nasc' => $dados['data_nasc'],
-                ':telefone' => $dados['telefone']
+                ':telefone' => $dados['telefone'],
+                ':senha' => $dados['senha']
             ]);
         }
 
