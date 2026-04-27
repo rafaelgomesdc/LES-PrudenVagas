@@ -40,6 +40,7 @@
     </nav>
 
     <section class="cantro">
+        <br>
         <div class="box">
             <table border="1">
                 <tr>
@@ -60,7 +61,7 @@
                 <?php endforeach; ?>
             </table>
         </div>
-
+        <br>
         <div class="box">
             <table border="1">
                 <tr>
@@ -83,7 +84,7 @@
                 <?php endforeach; ?>
             </table>
         </div>
-
+        <br>
         <div class="box">
             <table border="1">
                 <tr>
@@ -109,7 +110,7 @@
             </table>
         </div>
     </section>
-    
+    <br>
     <footer>
         <div class="rodape">
             <div class="atendimento">

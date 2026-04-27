@@ -34,7 +34,7 @@ class PessoaJuridica
 
     public function All()
     {
-        $stmt = $this->conn->query("SELECT (cnpj, razao_social, email, telefone, categoria) FROM {$this->table}");
+        $stmt = $this->conn->query("SELECT cnpj, razao_social, email, telefone, categoria FROM {$this->table}");
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
