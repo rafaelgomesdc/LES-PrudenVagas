@@ -17,9 +17,17 @@ switch ($action)
     case 'view-cadastrar-pj':
         $pjController->ViewCadastrar();
         break;
+    case 'view-login-pj':
+        $pjController->ViewLogin();
+        break;
     case 'cadastrar-pj':
         $pjController->Cadastrar();
         break;
+    case 'login-pj':
+        $pjController->Login();
+        break;
+    case 'gerenciar-vagas':
+        $pjController->GerenciarVagas();
     
     //Pessoa Física
     case 'view-cadastrar-pf':

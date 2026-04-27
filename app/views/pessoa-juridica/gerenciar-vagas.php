@@ -26,14 +26,13 @@
         <ul>
             <a href="#"><li>Home</li></a>
             <a href="banco-talentos.html"><li>Banco de Talentos</li></a>
-            <a href="#"><li>Suas Vagas</li></a>
+            <a href=""><li>Suas Vagas</li></a>
             <a href="perfil-empresa.html"><li>Perfil da Empresa</li></a>
             <li class="nav-element-drop">
                 <a href="#">Cadastrar</a>
                 <div class="nav-element-drop-content">
-                    <a href="">Link 1</a>
-                    <a href="">Link 2</a>
-                    <a href="">Link 3</a>
+                    <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pj">Empresa</a>
+                    <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pf">Candidato</a>
                 </div>
             </li>
         </ul>
