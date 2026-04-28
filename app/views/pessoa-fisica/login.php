@@ -42,6 +42,9 @@
             </div>
         </div>
     </section>
+
+    <div class="space-fix"></div>
+    
     <footer>
         <section class="rodape">
             <div class="atendimento">

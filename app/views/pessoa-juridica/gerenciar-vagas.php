@@ -62,67 +62,8 @@
     </section>
     
     <footer>
-        <div class="rodape">
-            <div class="atendimento">
-                <h3>ATENDIMENTO AO CLIENTE</h3>
-                <a href="#">Central de Ajuda</a>
-                <a href="#">Como comprar</a>
-                <a href="#">Métodos de Paramento</a>
-                <a href="#">Garantia Xhopii</a>
-                <a href="#">Devolução e Reembolso</a>
-                <a href="#">Fale Conosco</a>
-                <a href="#">Ouridoria</a>
-            </div>
-            <div class="sobre">
-                <h3>SOBRE A XHOPII</h3>
-                <a href="#">Sobre Nós</a>
-                <a href="#">Políticas Xhopii</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Programa de Ailiados da Xhopii</a>
-                <a href="#">Seja um Entregador Xhopii</a>
-                <a href="#">Ofertas Relâmpago</a>
-                <a href="#">Xhopii Blog</a>
-                <a href="#">Impresa</a>
-            </div>
-            <div class="pag">
-                <h3>PAGAMENTO</h3>
-                <div class="formas">
-                    <img style="width: 60px;" src="assets/img/pix-bc-logo-2048x726.png">
-                    <img src="assets/img/boleto-logo-4.png">
-                    <img src="assets/img/american.png">
-                    <img src="assets/img/Visa-Logo-700x394.png">
-                    <img src="assets/img/MasterCard_Logo.svg.png">
-                    <img src="assets/img/logo-hipercard.png">
-                    <img src="assets/img/logo-elo.png">
-                </div>
-            </div>
-            <div class="sociais">
-                <h3>SIGA-NOS</h3>
-                <div class="sociais-img">
-                    <img src="assets/img/logo-instagram.png"><p>Instagram</p>
-                </div>
-                <div class="sociais-img">
-                    <img src="assets/img/logo-twitter.png"><p>twitter</p>
-                </div>
-                <div class="sociais-img">
-                    <img src="assets/img/logo-facebook.png"><p>Facebook</p>
-                </div>
-                <div class="sociais-img">
-                    <img src="assets/img/logo-youtube.png"><p>Youtube</p>
-                </div>
-                <div class="sociais-img">
-                    <img src="assets/img/logo-linkedln.png"><p>Linkedin</p>
-                </div>
-            </div>
-            <div class="downloads">
-                <h3>DOWNLOADS</h3>
-                <a href="#"><img src="assets/img/qr-code.png"></a>
-                <a href="#"><img src="assets/img/playstore.png"></a>
-                <a href="#"><img src="assets/img/Apple_Store.png"></a>
-            </div>
-        </div>
         <div class="direitos">
-            <p>@ 2023 Xhopii. Todos os direitos acadêmicos reservados</p>
+            <p>@ 2026 PrudenVagas. Todos os direitos acâdemicos reservados.</p>
         </div>
     </footer>
 </body>

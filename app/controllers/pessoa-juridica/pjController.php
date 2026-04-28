@@ -22,7 +22,7 @@ class PJController
 
     private function ChecarAutorizacao()
     {
-        if (!session_status())
+        if (session_status() !== PHP_SESSION_ACTIVE)
             session_start();
         
         if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
@@ -38,6 +38,7 @@ class PJController
     //Métodos para chamar views
     public function ViewCadastrar()
     {
+        $this->ChecarAutorizacao();
         require __DIR__ .  "/../../views/pessoa-juridica/cadastrar.php";
     }
     

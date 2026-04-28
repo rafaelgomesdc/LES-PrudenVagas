@@ -1,0 +1,67 @@
+/*CORES*/
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+/*MURAL*/
+
+/*CARD VAGA*/
+.card-vaga
+{
+    min-height: 20%;
+    width: 30%;
+    padding: 15px;
+    background-color: #631FA6;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.card-vaga img
+{
+    height: 100px;
+    width: auto;
+    float: right;
+    border-radius: 5px;
+}
+
+.card-vaga .btn
+{
+    justify-self: center;
+    text-decoration: underline;
+}
+
+.card-vaga:hover
+{
+    background-color: #8A54BF;
+}
+
+.card-vaga:hover .btn
+{
+    color: orange;
+}
+
+.card-vaga a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.card-vaga .categoria h3
+{
+    font-size: 14px;
+    background-color: #A47ACA;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: fit-content;
+}
+
+.card-vaga .categoria
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

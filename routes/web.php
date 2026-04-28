@@ -56,6 +56,11 @@ switch ($action)
         $vagasController->Cadastrar();
         break;
 
+    //Não logado
+    case 'mural-vagas':
+        $vagasController->Mural();
+        break;
+
     //Administrador
     case 'view-administrador-gerenciamento':
         $admController->ViewGerenciamento();

@@ -10,6 +10,8 @@ header
     width: 100%;
     background-color: #4836BF;
     color: white;
+
+    flex-shrink: 0;
 }
 
 header li, header a
@@ -47,6 +49,8 @@ header h1, header h2 {
 nav
 {
     background-color: #8A54BF;
+
+    flex-shrink: 0;
 }
 
 nav li, nav a

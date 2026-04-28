@@ -54,8 +54,11 @@ class VagasController
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
     }
 
-    public function All()
-    {}
+    public function Mural()
+    {
+        $vagas = $this->vagasModel->All();
+        require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
+    }
 
 }
 ?>
