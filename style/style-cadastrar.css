@@ -49,10 +49,12 @@ nav
     border-radius: 6px;
     text-align: center;
 }
-.login-box h1 {
+
+/*.login-box h1 {
     color: #015958;
     text-align: center;
-}
+}*/
+
 .login-box input[type="email"],
 .login-box input[type="password"],
 .login-box input[type="text"],

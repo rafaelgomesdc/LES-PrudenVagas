@@ -8,9 +8,9 @@
 
     <base href="<?= base_url ?>">
 
+    <link rel="stylesheet" href="style/style-cadastrar.css">
     <link rel="stylesheet" href="style/style-base.css">
     <link rel="stylesheet" href="style/style-header.css">
-    <link rel="stylesheet" href="style/style-cadastrar.css">
     
     <title>PrudenVagas</title>
 </head>

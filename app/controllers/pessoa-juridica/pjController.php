@@ -22,7 +22,8 @@ class PJController
 
     private function ChecarAutorizacao()
     {
-        session_start();
+        if (!session_status())
+            session_start();
         
         if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
         {
