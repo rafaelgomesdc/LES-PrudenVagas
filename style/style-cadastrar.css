@@ -24,7 +24,6 @@ nav
     width: 100%;
     height: auto;
     border: 2px #015958;
-    background-color: #590C9E;
     margin: 0%;
 }
 
@@ -51,9 +50,8 @@ nav
     text-align: center;
 }
 .login-box h1 {
-    font-size: 20px;
     color: #015958;
-    text-align: left;
+    text-align: center;
 }
 .login-box input[type="email"],
 .login-box input[type="password"],

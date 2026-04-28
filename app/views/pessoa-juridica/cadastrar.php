@@ -6,9 +6,9 @@
 
     <base href="<?= base_url ?>">
 
-    <link rel="stylesheet" href="style/style-base.css">
-    <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-cadastrar.css">
+    <link rel="stylesheet" href="style/style-header.css">
+    <link rel="stylesheet" href="style/style-base.css">
 
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <script src="validacao.js" defer></script>
