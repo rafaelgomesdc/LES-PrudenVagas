@@ -46,12 +46,12 @@
         <div class="box">
             <div class="login-box">
                 <h1>Cadastrar Vaga</h1>
-                <form>
-                    <input type="text" placeholder="Nome da Vaga" required>
-                    <input type="text" placeholder="Função">
-                    <input type="text" placeholder="Descrição">
-                    <input type="number" placeholder="Pagamento" required>
-                    <input type="number" placeholder="Quantidade de Vagas">
+                <form method="POST" action="<?= base_url ?>public/index.php?action=cadastrar-vaga">
+                    <input type="text" placeholder="Nome da Vaga" name="nome" required>
+                    <input type="text" placeholder="Função" name="funcao">
+                    <input type="text" placeholder="Descrição" name="descricao">
+                    <input type="number" placeholder="Pagamento" name="pagamento" required>
+                    <input type="number" placeholder="Quantidade de Vagas" name="quantidade">
                     <br>
                     <label for="o">Selecionar foto de capa:</label>
                     <br>

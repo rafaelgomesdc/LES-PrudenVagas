@@ -48,6 +48,10 @@ switch ($action)
     case 'view-cadastrar-vaga':
         $vagasController->ViewCadastrar();
         break;
+    case 'cadastrar-vaga':
+        $vagasController->Cadastrar();
+        break;
+
     //Administrador
     case 'view-administrador-gerenciamento':
         $admController->ViewGerenciamento();
