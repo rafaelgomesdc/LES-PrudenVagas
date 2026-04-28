@@ -8,6 +8,7 @@ require_once __DIR__ . '/../app/controllers/adm/admController.php';
 $pjController = new PJController();
 $pfController = new PFController();
 $admController = new ADMController();
+$vagasController = new VagasController();
 
 $action = $_GET['action'] ?? 'view-cadastrar-pf';
 
@@ -44,7 +45,9 @@ switch ($action)
         break;
 
     //Vagas
-    
+    case 'view-cadastrar-vaga':
+        $vagasController->ViewCadastrar();
+        break;
     //Administrador
     case 'view-administrador-gerenciamento':
         $admController->ViewGerenciamento();
