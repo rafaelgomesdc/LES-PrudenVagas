@@ -22,6 +22,8 @@ class PJController
 
     private function ChecarAutorizacao()
     {
+        session_start();
+        
         if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
         {
             session_destroy();
@@ -101,6 +103,14 @@ class PJController
         elseif (!password_verify($senha, $usuario['senha'])) {
             echo "Senha inválida.";
         }
+    }
+
+    public function Logout()
+    {
+        session_start();
+        session_destroy();
+
+        require __DIR__ . "/../../views/pessoa-juridica/login.php";
     }
 }
 

@@ -15,26 +15,18 @@
     <header>
         <div class="header-content">
             <div class="identidade">
-                <img src="assets/img/proprio/logo.png">
+                <img src="assets/img/PrudenVagas.png">
                 <h1>PrudenVagas</h1>
             </div>
-            <h2><a href="../login/select-login.html">Sair</a></h2>
+            <h2><a href="<?= base_url ?>public/index.php?action=logout-pj">Sair</a></h2>
         </div>
     </header>
 
     <nav>
         <ul>
-            <a href="#"><li>Home</li></a>
             <a href="banco-talentos.html"><li>Banco de Talentos</li></a>
-            <a href=""><li>Suas Vagas</li></a>
+            <a href="<?= base_url ?>public/index.php?action=gerenciar-vagas"><li>Suas Vagas</li></a>
             <a href="perfil-empresa.html"><li>Perfil da Empresa</li></a>
-            <li class="nav-element-drop">
-                <a href="#">Cadastrar</a>
-                <div class="nav-element-drop-content">
-                    <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pj">Empresa</a>
-                    <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pf">Candidato</a>
-                </div>
-            </li>
         </ul>
     </nav>
 
@@ -51,20 +43,22 @@
                 </tr>
                 <?php foreach ($vagas as $v): ?>
                 <tr>
-                        <td><?= $v['com_cod'] ?></td>
-                        <td><?= $v['com_descricao'] ?></td>
-                        <td><?= $v['com_fabricante'] ?></td>
-                        <td><?= $v['com_numeroserie'] ?></td>
-                        <td><?= $v['com_acessorios'] ?></td>
-                        <td><?= $v['com_acessorios'] ?></td>
+                        <td><?= $v['codigo'] ?></td>
+                        <td><?= $v['nome'] ?></td>
+                        <td><?= $v['funcao'] ?></td>
+                        <td><?= $v['descricao'] ?></td>
+                        <td><?= $v['pagamento'] ?></td>
+                        <td><?= $v['quantidade'] ?></td>
                         <td>
-                            <a href="?action=edit&cod=<?= $v['com_cod'] ?>">Editar</a>
-                            <a href="?action=delete&cod=<?= $v['com_cod'] ?>">Excluir</a>
+                            <a href="?action=edit&cod=<?= $v['codigo'] ?>">Editar</a>
+                            <a href="?action=delete&cod=<?= $v['codigo'] ?>">Excluir</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </table>
         </div>
+
+        <a href="<?= base_url ?>public/index.php?action=view-cadastrar-vaga">Adicionar Vaga</a>
     </section>
     
     <footer>

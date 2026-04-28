@@ -50,6 +50,7 @@ class VagasController
 
         $this->vagasModel->Store($dados);
 
+        $vagas = $this->vagasModel->All();
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
     }
 

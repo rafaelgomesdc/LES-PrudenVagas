@@ -27,18 +27,9 @@
 
     <nav>
         <ul>
-            <a href="homepage.html"><li>Home</li></a>
-            <a href="mural-vagas.html"><li>Mural de Vagas</li></a>
-            <a href="#"><li>Empresas</li></a>
-            <a href="perfil-candidato.html"><li>Perfil do Candidato</li></a>
-            <li class="nav-element-drop">
-                <a href="#">Cadastrar</a>
-                <div class="nav-element-drop-content">
-                    <a href="">Link 1</a>
-                    <a href="">Link 2</a>
-                    <a href="">Link 3</a>
-                </div>
-            </li>
+            <a href="banco-talentos.html"><li>Banco de Talentos</li></a>
+            <a href="<?= base_url ?>public/index.php?action=gerenciar-vagas"><li>Suas Vagas</li></a>
+            <a href="perfil-empresa.html"><li>Perfil da Empresa</li></a>
         </ul>
     </nav>
 

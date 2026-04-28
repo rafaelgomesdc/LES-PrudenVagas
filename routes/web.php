@@ -10,7 +10,7 @@ $pfController = new PFController();
 $admController = new ADMController();
 $vagasController = new VagasController();
 
-$action = $_GET['action'] ?? 'view-cadastrar-pf';
+$action = $_GET['action'] ?? 'view-cadastrar-pj';
 
 switch ($action)
 {
@@ -27,8 +27,12 @@ switch ($action)
     case 'login-pj':
         $pjController->Login();
         break;
+    case 'logout-pj':
+        $pjController->Logout();
+        break;
     case 'gerenciar-vagas':
         $pjController->GerenciarVagas();
+        break;
     
     //Pessoa Física
     case 'view-cadastrar-pf':

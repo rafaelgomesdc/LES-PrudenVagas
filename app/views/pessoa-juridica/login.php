@@ -6,23 +6,21 @@
 
     <base href="<?= base_url ?>">
 
+    <link rel="stylesheet" href="style/style-header.css">
+    <link rel="stylesheet" href="style/style-base.css">
     <link rel="stylesheet" href="style/style-cadastrar.css">
+
+
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <script src="validacao.js" defer></script>
     <title>Suas vagas, só aqui na PrudenVagas</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="assets/img/PrudenVagas.png" alt="">
-        <div>
-            <a href="" target="_self"><h1>PrudenVagas</h1></a>
-            <div class="div-logo">
-                <li  class="dropdown"><img class="logo" id="imagem-login" src="assets/img/login.png" alt="">
-                    <div class="dropdown-conteudo">
-                    <a href="" target="_blank">Perfil da Empresa</a>
-                    <a href="" target="_blank">Sair</a>
-                    </div>
-                </li>
+        <div class="header-content">
+            <div class="identidade">
+                <img src="assets/img/PrudenVagas.png">
+                <h1>PrudenVagas</h1>
             </div>
         </div>
     </header>
@@ -37,7 +35,7 @@
                     <input type="text"   placeholder="CNPJ" name="inputCNPJ" required>
                     <input type="password" id="senha" placeholder="Senha" name="inputSenha" required>
                     <br><br>
-                    <button type="submit">Login</button>
+                    <button type="submit" class="submit">Login</button>
                 </form>
             </div>
         </div>
