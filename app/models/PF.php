@@ -12,9 +12,10 @@ class PessoaFisica
 
     public function Registrar($dados)
     {
-        if ($this->Find($dados['CPF']) === null);
+        if ($this->Find($dados['CPF']) === null)
         {
-            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone)";
+            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone) 
+                    VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone)";
             $stmt = $this->conn->prepare($sql);
 
             return $stmt->execute([
@@ -26,28 +27,19 @@ class PessoaFisica
                 ':telefone' => $dados['telefone']
             ]);
         }
-
-        echo "CPF já cadastrado.";
+        return false;
     }
 
     public function Find($cpf)
     {
+        $cpfLimpo = preg_replace('/[^0-9]/', '', $cpf);
+
         $sql = "SELECT * FROM {$this->table} WHERE cpf = :cpf";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cpf' => $cpf]);
+        $stmt->execute([':cpf' => $cpfLimpo]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result : null;
     }
-
-    public function All()
-    {
-        $stmt = $this->conn->query("SELECT (cpf, nome, sobrenome, rg, data_nasc, telefone) FROM {$this->table}");
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function Carregar($dados)
-    {}
 }
-
 ?>
