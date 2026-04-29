@@ -52,4 +52,5 @@ class PessoaFisica
     public function Carregar($dados)
     {}
 }
+
 ?>
