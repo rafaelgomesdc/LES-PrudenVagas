@@ -29,12 +29,12 @@
     <section class="centro">
         <div class="box">
             <div class="login-box">
-                <h1>Login Candidato</h1>
+                <h1>Entrar como Candidato</h1>
                 <form method="POST" action="<?= base_url ?>public/index.php?action=login-pf">
                     <input type="text"   placeholder="CPF" name="inputCPF" required>
                     <input type="password" id="senha" placeholder="Senha" name="inputSenha" required>
                     <br><br>
-                    <button type="submit">Login</button>
+                    <button type="submit" id="botao">Entrar</button>
                 </form>
             </div>
         </div>

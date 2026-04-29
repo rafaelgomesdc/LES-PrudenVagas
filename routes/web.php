@@ -58,7 +58,10 @@ switch ($action)
     case 'delete-vaga':
         $vagasController->Deletar();
         break;
-
+    case 'view-vaga':
+        break;
+    case 'cadidatar-se':
+        break;
     //Não logado
     case 'mural-vagas':
         $vagasController->Mural();

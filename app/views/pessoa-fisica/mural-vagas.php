@@ -33,14 +33,14 @@
             <a href="perfil-candidato.php"><li>Perfil do Candidato</li></a>
             <?php if (!isset($_SESSION['usuario'])): ?>
             <li class="nav-element-drop">
-                <a href="#">Cadastrar</a>
+                <a>Cadastrar</a>
                 <div class="nav-element-drop-content">
                     <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pf">Candidato</a>
                     <a href="<?= base_url ?>public/index.php?action=view-cadastrar-pj">Empresa</a>
                 </div>
             </li>
             <li class="nav-element-drop">
-                <a href="#">Entrar</a>
+                <a>Entrar</a>
                 <div class="nav-element-drop-content">
                     <a href="<?= base_url ?>public/index.php?action=view-login-pf">Candidato</a>
                     <a href="<?= base_url ?>public/index.php?action=view-login-pj">Empresa</a>
