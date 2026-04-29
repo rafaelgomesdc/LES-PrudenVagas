@@ -130,12 +130,7 @@
                             }
                         }
                     </script>
--->
-
-                    <input type="text" placeholder="Email" name="inputEmail" required>
-                    <input type="date" id="Data" name="inputDataNasc" required>
-                    <input type="text" placeholder="Telefone" name="inputTelefone" required>
-                    
+-->                    
                     <input type="email" placeholder="Email" name="inputEmail" required>
                     <input type="password" placeholder="Senha" name="inputSenha" required>
                     
