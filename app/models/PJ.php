@@ -3,7 +3,7 @@
 class PessoaJuridica
 {
     private $conn;
-    private $table = 'pessoas_juridicas';
+    private $table = 'pessoas_juridicas'; // TABELA ATUALIZADA
 
     public function __construct($db)
     {
@@ -12,35 +12,39 @@ class PessoaJuridica
 
     public function Registrar($dados)
     {
-        $sql = "INSERT INTO {$this->table} (cnpj, razao_social, email, senha) VALUES (:cnpj, :razao_social, :email, :senha)";
-        $stmt = $this->conn->prepare($sql);
+        // Verifica se o CNPJ já existe
+        if ($this->Find($dados['cnpj']) === null)
+        {
+            // Query atualizada para campos de PJ
+            $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, telefone, email) 
+                    VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :telefone, :email)";
+            $stmt = $this->conn->prepare($sql);
 
-        return $stmt->execute([
-            ':cnpj' => $dados['cnpj'],
-            ':razao_social' => $dados['razaoSocial'],
-            ':email' => $dados['email'],
-            ':senha' => $dados['senha']
-        ]);
+            return $stmt->execute([
+                ':cnpj' => $dados['cnpj'],
+                ':razao_social' => $dados['razao_social'],
+                ':nome_fantasia' => $dados['nome_fantasia'],
+                ':ie' => $dados['ie'],
+                ':telefone' => $dados['telefone'],
+                ':email' => $dados['email']
+            ]);
+        }
+
+        // Caso o CNPJ já exista
+        return false;
     }
 
     public function Find($cnpj)
     {
+        // Limpa formatação para buscar apenas números
+        $cnpjLimpo = preg_replace('/[^0-9]/', '', $cnpj);
+
         $sql = "SELECT * FROM {$this->table} WHERE cnpj = :cnpj";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cnpj' => $cnpj]);
+        $stmt->execute([':cnpj' => $cnpjLimpo]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result : null;
     }
-
-    public function All()
-    {
-        $stmt = $this->conn->query("SELECT cnpj, razao_social, email, telefone, categoria FROM {$this->table}");
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function Carregar($dados)
-    {}
 }
-
 ?>

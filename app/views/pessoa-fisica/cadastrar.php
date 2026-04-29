@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <base href="<?= base_url ?>">
-
     <link rel="stylesheet" href="style/style-cadastrar.css">
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
@@ -13,28 +11,40 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <script src="validacao.js" defer></script>
     <title>Suas vagas, só aqui na PrudenVagas</title>
+    <style>
+        /* Estilos básicos para os feedbacks de validação */
+        .mensagem-erro { color: red; background-color: #fee; border: 1px solid red; padding: 10px; margin-bottom: 15px; border-radius: 4px; display: none; }
+        .mensagem-sucesso { color: green; background-color: #efe; border: 1px solid green; padding: 10px; margin-bottom: 15px; border-radius: 4px; display: none; }
+        .campo-erro { border: 2px solid red !important; }
+        .campo-sucesso { border: 2px solid green !important; }
+        #status-cpf { font-size: 12px; margin-top: -10px; margin-bottom: 10px; display: block; }
+    </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="identidade">
-                <img src="assets/img/PrudenVagas.png">
-                <h1>PrudenVagas</h1>
+        <img class="logo" src="assets/img/PrudenVagas.png" alt="">
+        <div>
+            <a href="" target="_self"><h1>PrudenVagas</h1></a>
+            <a href="" target="_self"><h1>Sair</h1></a>
             </div>
         </div>
     </header>
 
-    <nav>
-        <img src="assets/img/1.png">
-    </nav>
     <section class="centro">
         <div class="box">
             <div class="login-box">
                 <h1>Cadastrar Candidato</h1>
-                <form method="POST" action="<?= base_url ?>public/index.php?action=cadastrar-pf" enctype="multipart/form-data">
+
+                <div id="mensagem-geral-erro" class="mensagem-erro"></div>
+                <div id="mensagem-geral-sucesso" class="mensagem-sucesso"></div>
+
+                <form id="formCadastro" method="POST" action="<?= base_url ?>public/index.php?action=cadastrar-pf" enctype="multipart/form-data">
                     <input type="text" placeholder="Nome" name="inputNome" required>
                     <input type="text" placeholder="Sobrenome" name="inputSobrenome" required>
-                    <input type="text" placeholder="CPF" name="inputCPF" required>
+                    
+                    <input type="text" placeholder="CPF" name="inputCPF" id="inputCPF" required maxlength="14">
+                    <span id="status-cpf"></span>
+
                     <input type="text" placeholder="RG" name="inputRG" required>
                     <label for="Data" style="display: block;">Data de Nascimento:</label>
                     <br>
@@ -125,15 +135,13 @@
 
                     <input type="text" placeholder="Email" name="inputEmail" required>
                     <input type="password" placeholder="Senha" name="inputSenha" required>
+                    
                     <br>
-                    <label for="o">Selecionar foto de perfil:</label>
-                    <br>
-                    <label for="input-upload-imagem" id="o" class="custom-file-upload">Escolher Currículo</label>
-                    <input type="file" id="input-upload-imagem" accept="image/*">  
-                    <span id="file-name">Nenhum arquivo escolhido</span>
+                    <label for="input-upload-imagem" class="custom-file-upload">Escolher Foto de Perfil</label>
+                    <input type="file" id="input-upload-imagem" name="fotoPerfil" accept="image/*">
                     <br><br>
-                    <input type="hidden" name="acao" value="CadastrarPessoaFisica">
-                    <input id="botao" type="submit" value="Cadastrar">
+
+                    <input type="submit" id="btnEnviar" value="Cadastrar">
                 </form>
             </div>
         </div>
@@ -146,5 +154,38 @@
             <p>@ 2026 PrudenVagas. Todos os direitos acâdemicos reservados.</p>
         </div>
     </footer>
+    <script>
+        document.getElementById('inputCPF').addEventListener('blur', function() {
+            const cpf = this.value.replace(/\D/g, ''); // Remove formatação
+            const statusSpan = document.getElementById('status-cpf');
+            const campoCpf = this;
+            const btnEnviar = document.getElementById('btnEnviar');
+
+            // Limpa estados anteriores
+            statusSpan.textContent = '';
+            statusSpan.style.color = '';
+            campoCpf.classList.remove('campo-erro', 'campo-sucesso');
+            btnEnviar.disabled = false;
+
+            if (cpf.length === 11) {
+                statusSpan.textContent = 'Validando CPF...';
+                statusSpan.style.color = 'blue';
+            }
+
+        // Formatação simples do CPF (XXX.XXX.XXX-XX) enquanto digita
+        document.getElementById('inputCPF').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            if (value.length > 9) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{1,3})$/, "$1.$2.$3");
+            } else if (value.length > 3) {
+                value = value.replace(/^(\d{3})(\d{1,3})$/, "$1.$2");
+            }
+            e.target.value = value;
+        });
+    </script>
 </body>
 </html>

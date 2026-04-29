@@ -12,7 +12,7 @@ class PessoaFisica
 
     public function Registrar($dados)
     {
-        if ($this->Find($dados['CPF']) === null);
+        if ($this->Find($dados['CPF']) === null)
         {
             $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone, senha) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone, :senha)";
             $stmt = $this->conn->prepare($sql);
@@ -27,17 +27,19 @@ class PessoaFisica
                 ':senha' => $dados['senha']
             ]);
         }
-
-        echo "CPF já cadastrado.";
+        return false;
     }
 
     public function Find($cpf)
     {
+        $cpfLimpo = preg_replace('/[^0-9]/', '', $cpf);
+
         $sql = "SELECT * FROM {$this->table} WHERE cpf = :cpf";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cpf' => $cpf]);
+        $stmt->execute([':cpf' => $cpfLimpo]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result : null;
     }
 
     public function All()
@@ -50,5 +52,4 @@ class PessoaFisica
     public function Carregar($dados)
     {}
 }
-
 ?>
