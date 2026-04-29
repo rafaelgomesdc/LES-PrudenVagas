@@ -169,7 +169,8 @@
                 statusSpan.textContent = 'Validando CPF...';
                 statusSpan.style.color = 'blue';
             }
-
+        });
+        
         // Formatação simples do CPF (XXX.XXX.XXX-XX) enquanto digita
         document.getElementById('inputCPF').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');

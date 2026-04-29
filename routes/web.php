@@ -10,7 +10,7 @@ $pfController = new PFController();
 $admController = new ADMController();
 $vagasController = new VagasController();
 
-$action = $_GET['action'] ?? 'view-cadastrar-pj';
+$action = $_GET['action'] ?? 'mural-vagas';
 
 switch ($action)
 {

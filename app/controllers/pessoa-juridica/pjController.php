@@ -38,7 +38,6 @@ class PJController
     //Métodos para chamar views
     public function ViewCadastrar()
     {
-        $this->ChecarAutorizacao();
         require __DIR__ .  "/../../views/pessoa-juridica/cadastrar.php";
     }
     
