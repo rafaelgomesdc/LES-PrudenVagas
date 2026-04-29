@@ -18,7 +18,8 @@ class VagasController
 
     private function ChecarAutorizacao()
     {
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE)
+            session_start();
 
         if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
         {
@@ -54,11 +55,22 @@ class VagasController
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
     }
 
+    public function Deletar()
+    {
+        $this->ChecarAutorizacao();
+
+        if (isset($_GET['cod']))
+        {
+            $this->vagasModel->Delete($cod);
+        }
+
+        require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
+    }
+
     public function Mural()
     {
         $vagas = $this->vagasModel->All();
         require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
     }
-
 }
 ?>

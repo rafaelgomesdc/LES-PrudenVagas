@@ -55,6 +55,9 @@ switch ($action)
     case 'cadastrar-vaga':
         $vagasController->Cadastrar();
         break;
+    case 'delete-vaga':
+        $vagasController->Deletar();
+        break;
 
     //Não logado
     case 'mural-vagas':

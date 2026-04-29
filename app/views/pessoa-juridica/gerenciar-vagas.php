@@ -50,8 +50,8 @@
                         <td><?= $v['pagamento'] ?></td>
                         <td><?= $v['quantidade'] ?></td>
                         <td>
-                            <a href="?action=edit&cod=<?= $v['codigo'] ?>">Editar</a>
-                            <a href="?action=delete&cod=<?= $v['codigo'] ?>">Excluir</a>
+                            <a href="?action=edit-vaga&cod=<?= $v['codigo'] ?>">Editar</a>
+                            <a href="?action=delete-vaga&cod=<?= $v['codigo'] ?>">Excluir</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
