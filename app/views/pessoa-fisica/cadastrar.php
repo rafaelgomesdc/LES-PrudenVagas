@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style/style-base.css">
 
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <script src="validacao.js" defer></script>
     <title>Suas vagas, só aqui na PrudenVagas</title>
     <style>
         /* Estilos básicos para os feedbacks de validação */
@@ -22,10 +21,10 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="assets/img/PrudenVagas.png" alt="">
-        <div>
-            <a href="" target="_self"><h1>PrudenVagas</h1></a>
-            <a href="" target="_self"><h1>Sair</h1></a>
+        <div class="header-content">
+            <div class="identidade">
+                <img src="assets/img/PrudenVagas.png">
+                <h1>PrudenVagas</h1>
             </div>
         </div>
     </header>
@@ -134,6 +133,10 @@
 -->
 
                     <input type="text" placeholder="Email" name="inputEmail" required>
+                    <input type="date" id="Data" name="inputDataNasc" required>
+                    <input type="text" placeholder="Telefone" name="inputTelefone" required>
+                    
+                    <input type="email" placeholder="Email" name="inputEmail" required>
                     <input type="password" placeholder="Senha" name="inputSenha" required>
                     
                     <br>
