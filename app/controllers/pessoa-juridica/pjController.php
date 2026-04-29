@@ -49,7 +49,6 @@ class PJController
     public function GerenciarVagas()
     {
         $this->ChecarAutorizacao();
-        echo "Olá, " . $_SESSION['nome'];
 
         $vagas = $this->vagasModel->All();
 

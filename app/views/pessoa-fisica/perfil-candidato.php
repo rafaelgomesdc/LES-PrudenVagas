@@ -82,48 +82,8 @@
     </section>
 
     <footer>
-        <section class="rodape">
-            <div class="atendimento">
-                <h3>ATENDIMENTO AO CLIENTE</h3>
-                <p>Central de ajuda</p>
-                <p>Fale Conosco</p>
-                <p>Ouvidoria</p>
-            </div>
-            <div class="sobre">
-                <h3>SOBRE A PRRUDENVAGAS</h3>
-                <p>Sobre Nós</p>
-                <p>Políticas PrudenVagas</p>
-                <p>Políticas de Privacidade</p>
-                <p>Programa de Aliados da PrudenVagas</p>
-            </div>
-            <div class="sociais">
-                    <h3>SIGA-NOS</h3>
-                    <div class="sociais-img">
-                        <img src="../img/logo-instagram.png"><p>Instagram</p>
-                    </div>
-                    <div class="sociais-img">
-                        <img src="../img/logo-twitter.png"><p>twitter</p>
-                    </div>
-                    <div class="sociais-img">
-                        <img src="../img/logo-facebook.png"><p>Facebook</p>
-                    </div>
-                    <div class="sociais-img">
-                        <img src="../img/logo-youtube.png"><p>Youtube</p>
-                    </div>
-                    <div class="sociais-img">
-                        <img src="../img/logo-linkedln.png"><p>Linkedin</p>
-                    </div>
-                </div>
-                <div class="downloads">
-                    <h3>DOWNLOADS</h3>
-                    <img src="../img/qr-code.png">
-                    <img src="../img/playstore.png">
-                    <img src="../img/Apple_Store.png">
-                </div>
-        </section>
-        <div class="direito">
-            <hr>
-            <p>@ 2025 PrudenVagas. Todos os direitos acâdemicos reservados</p>
+        <div class="direitos">
+            <p>@ 2026 PrudenVagas. Todos os direitos acâdemicos reservados.</p>
         </div>
     </footer>
 </body>

@@ -106,10 +106,14 @@ class PFController
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
+            $this->ViewCadastrar();
         }
         elseif (!password_verify($senha, $usuario['senha'])) {
             echo "Senha inválida.";
         }
     }
+
+    public function Candidatar()
+    {}
 }
 ?>
