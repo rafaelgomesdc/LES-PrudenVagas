@@ -44,8 +44,8 @@
                     
                     <input type="email" placeholder="Email Comercial" name="inputEmail" required>
                     <input type="password" placeholder="Senha" name="inputSenha" required>
-                    
-                    <input type="submit" id="btnEnviar" value="Cadastrar Empresa">
+                    <br>
+                    <input type="submit" id="botao" value="Cadastrar Empresa">
                 </form>
             </div>
         </div>

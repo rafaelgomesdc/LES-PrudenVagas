@@ -144,7 +144,7 @@
                     <input type="file" id="input-upload-imagem" name="fotoPerfil" accept="image/*">
                     <br><br>
 
-                    <input type="submit" id="btnEnviar" value="Cadastrar">
+                    <input type="submit" id="botao" value="Cadastrar">
                 </form>
             </div>
         </div>

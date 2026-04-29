@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../../../core/Database.php";
-require_once __DIR__ . "/../../../core/ValidadorCPFService.php"; // [NOVO] Importa o serviço
+//require_once __DIR__ . "/../../../core/ValidadorCPFService.php"; // [NOVO] Importa o serviço 
 require_once __DIR__ . "/../../models/PF.php";
 require_once __DIR__ . "/../../models/Vaga.php";
 
@@ -18,7 +18,7 @@ class PFController
 
         $this->pfModel = new PessoaFisica($db);
         $this->vagasModel = new Vaga($db);
-        $this->validadorCPF = new ValidadorCPFService(); // [NOVO] Inicializa o serviço
+        //$this->validadorCPF = new ValidadorCPFService(); // [NOVO] Inicializa o serviço
     }
 
     public function ViewCadastrar()

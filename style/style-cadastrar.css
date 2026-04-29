@@ -79,12 +79,12 @@ nav
     color: #015958;
 }
 #botao{
-    width: 350px;
+    width: auto;
     background: #015958;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 3%;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
 }
