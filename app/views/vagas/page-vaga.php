@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <base href="<?= base_url ?>">
 
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
-    <link rel="stylesheet" href="style/style-card-vaga.css">
-    <link rel="stylesheet" href="style/style-mural.css">
+    <link rel="stylesheet" href="style/style-page-vaga.css">
 
     <title>PrudenVagas</title>
 </head>
@@ -50,28 +49,45 @@
         </ul>
     </nav>
     
-    <main>
-        <section class="mural-vagas">
-            <?php foreach ($vagas as $v): ?>
-            <div class="card-vaga">
-                <a href="<?= base_url ?>public/index.php?action=view-vaga&cod=<?= $v['codigo']?>&cnpj=<?= $v['pessoas_juridicas_cnpj'] ?>">
-                <img src="assets/img/logo-exemplo.png">
-                <h2><?= $v['nome']?></h2>
-                <div class="categoria">
-                    <h3><?= $v['funcao']?></h3>
-                    <h3>Presencial</h3>
-                </div>
-                <p><strong>Cidade:</strong> Presidente Prudente</p>
-                <p><?= substr($v['descricao'], 0, 80) ?>...</p>
-                <p class="btn"><strong>Saber Mais</strong></p>
-                </a>
-            </div>
-            <?php endforeach; ?>
-        </section>
-    </main>
+    <section class="vaga">
+        <?php $v = $vaga; ?>
+        <?php $pj = $empresa; ?>
+        <img src="<?= base_url ?>assets/img/logo-exemplo.png">
+        <h1 class="titulo-vaga"><?= $v['nome'] ?></h1>
 
-    <div class="space-fix"></div>
-    
+        <h3 class="categoria-vaga"><?= $v['funcao'] ?></h3>
+        <h3 class="tipo-vaga">Presencial</h3>
+
+        <p class="descricao"><?= $v['descricao'] ?></p>
+
+        <h3 class="sobre-empresa">Sobre a empresa:</h3>
+        <p class="sobre-empresa">
+            <?= $pj['razao_social'] ?> | <?= $pj['categoria']; ?>
+        </p>
+
+<!--
+        <h3 class="atividades">Atividades a serem desenvolvidas:</h3>
+        <p class="atividades">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut rem quia repellat, maxime facilis iste harum explicabo sequi possimus, fugiat voluptatum molestias nihil magni accusantium, incidunt nesciunt magnam! Possimus, sunt.
+        </p>
+
+        <h3 class="requisitos">Requisitos:</h3>
+        <ul>
+            <li>Requisito 1</li>
+            <li>Requisito 2</li>
+            <li>Requisito 3</li>
+        </ul>
+-->
+        
+        <div class="candidatacao">
+            <div class="candidatacao-info">
+                <h1 class="titulo-candidatacao">Candidate-se</h1>
+                <p>Ao enviar o seu currículo a empresa receberá sua candidatação.</p>
+            </div>
+            <a>Candidatar-se</a>
+        </div>
+    </section>
+
     <footer>
         <div class="direitos">
             <p>@ 2026 PrudenVagas. Todos os direitos acâdemicos reservados.</p>

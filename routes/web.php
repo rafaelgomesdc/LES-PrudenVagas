@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../app/controllers/pessoa-juridica/pjController.php';
-require_once __DIR__ . '/../app/controllers/pessoa-juridica/vagasController.php';
+require_once __DIR__ . '/../app/controllers/vaga/vagasController.php';
 require_once __DIR__ . '/../app/controllers/pessoa-fisica/pfController.php';
 require_once __DIR__ . '/../app/controllers/adm/admController.php';
 
@@ -59,6 +59,7 @@ switch ($action)
         $vagasController->Deletar();
         break;
     case 'view-vaga':
+        $vagasController->ViewVaga();
         break;
     case 'cadidatar-se':
         break;

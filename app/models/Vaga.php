@@ -54,7 +54,7 @@ class Vaga
 
     public function Find($cod)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE cod = :cod";
+        $sql = "SELECT * FROM {$this->table} WHERE codigo = :cod";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':cod' => $cod]);
 

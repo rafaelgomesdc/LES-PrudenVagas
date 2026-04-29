@@ -1,0 +1,57 @@
+/*CORES*/
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+/*PAGINA DA VAGA*/
+.vaga
+{
+    width: 60%;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.vaga img
+{
+    float: right;
+    height: 180px;
+    width: auto;
+    border-radius: 10px;
+}
+
+/*Candidatação*/
+.candidatacao
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: #A47ACA;
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    justify-self: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.candidatacao-info
+{
+    width: 50%;
+}
+
+.categoria-vaga, .tipo-vaga
+{
+    background-color: #A47ACA;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: fit-content;
+}
+
+/*
+.dicas
+{
+    width: 15%;
+    float: left;
+}*/

@@ -2,7 +2,8 @@
 
 require_once __DIR__ . "/../../../core/Database.php";
 require_once __DIR__ . "/../../models/Vaga.php";
-require_once __DIR__ . "/pjController.php";
+require_once __DIR__ . "/../../models/PF.php";
+require_once __DIR__ . "/../pessoa-juridica/pjController.php";
 
 class VagasController
 {
@@ -14,6 +15,7 @@ class VagasController
         $db = $database->connect();
 
         $this->vagasModel = new Vaga($db);
+        $this->pjModel = new PessoaJuridica($db);
     }
 
     private function ChecarAutorizacao()
@@ -35,6 +37,13 @@ class VagasController
     {
         $this->ChecarAutorizacao();
         require __DIR__ . "/../../views/pessoa-juridica/cadastrar-vaga.php";
+    }
+
+    public function ViewVaga()
+    {
+        $vaga = $this->vagasModel->Find($_GET['cod']);
+        $empresa = $this->pjModel->Find($_GET['cnpj']);
+        require __DIR__ . "/../../views/vagas/page-vaga.php";
     }
 
     public function Cadastrar()
