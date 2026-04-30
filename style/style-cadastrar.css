@@ -70,6 +70,15 @@ nav
     font-size: 14px;
 }
 
+.cep{
+    width: 60%;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 .login-box input[type="file"]{
     display: inline-block;
     border: 1px solid lightskyblue;

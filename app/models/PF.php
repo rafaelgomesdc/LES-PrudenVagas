@@ -44,8 +44,9 @@ class PessoaFisica
 
     public function All()
     {
-        $stmt = $this->conn->query("SELECT cpf, nome, sobrenome, rg, data_nasc, telefone FROM {$this->table}");
 
+        $sql = "SELECT cpf, nome, sobrenome, cidade, biografia, telefone, email FROM {$this->table}";
+        $stmt = $this->conn->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
