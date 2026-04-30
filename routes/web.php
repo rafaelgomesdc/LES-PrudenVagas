@@ -47,6 +47,9 @@ switch ($action)
     case 'login-pf':
         $pfController->Login();
         break;
+    case 'candidatar-se':
+        $pfController->Candidatar();
+        break;
 
     //Vagas
     case 'view-cadastrar-vaga':
@@ -60,8 +63,6 @@ switch ($action)
         break;
     case 'view-vaga':
         $vagasController->ViewVaga();
-        break;
-    case 'cadidatar-se':
         break;
     //Não logado
     case 'mural-vagas':

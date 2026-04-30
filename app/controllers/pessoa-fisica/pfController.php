@@ -4,11 +4,13 @@ require_once __DIR__ . "/../../../core/Database.php";
 //require_once __DIR__ . "/../../../core/ValidadorCPFService.php"; // [NOVO] Importa o serviço 
 require_once __DIR__ . "/../../models/PF.php";
 require_once __DIR__ . "/../../models/Vaga.php";
+require_once __DIR__ . "/../../models/Candidaturas.php";
 
 class PFController
 {
     private $pfModel;
     private $vagasModel;
+    private $candidaturasModel;
     private $validadorCPF; // [NOVO] Propriedade para o serviço
 
     public function __construct()
@@ -18,7 +20,23 @@ class PFController
 
         $this->pfModel = new PessoaFisica($db);
         $this->vagasModel = new Vaga($db);
+        $this->candidaturasModel = new Candidaturas($db);
         //$this->validadorCPF = new ValidadorCPFService(); // [NOVO] Inicializa o serviço
+    }
+
+    private function ChecarAutorizacao()
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE)
+            session_start();
+        
+        if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pf")
+        {
+            session_destroy();
+            
+            echo "não logado";
+            header('Location: ?action=view-login-pf');
+            exit;
+        }
     }
 
     public function ViewCadastrar()
@@ -37,7 +55,7 @@ class PFController
         if (isset($_POST['inputCPF'], $_POST['inputNome'], $_POST['inputSobrenome'], $_POST['inputRG'], $_POST['inputDataNasc'], $_POST['inputTelefone']))
         {
             $cpfRaw = $_POST['inputCPF'];
-            
+            /*
             // =====================================================================
             // 1. Validação do CPF no Servidor (Segurança adicional ao JS)
             // =====================================================================
@@ -51,7 +69,7 @@ class PFController
                 echo "<a href='javascript:history.back()'>Voltar</a>";
                 return;
             }
-
+            */
             // =====================================================================
             // 2. Preparação dos dados (com CPF já limpo pelo validador)
             // =====================================================================
@@ -65,14 +83,12 @@ class PFController
                 'telefone' => $_POST['inputTelefone'],
                 'senha' => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT)
             ];
-
+            
             // =====================================================================
             // 3. Tentativa de Registro no Banco
             // =====================================================================
             if ($this->pfModel->Registrar($dados)) {
                 // Sucesso
-                echo "<h1>Cadastro realizado com sucesso!</h1>";
-                echo "<a href='" . base_url . "'>Ir para Home</a>";
             } else {
                 // CPF já cadastrado (retorno false do model)
                 echo "<h1>Erro no Cadastro</h1>";
@@ -102,7 +118,7 @@ class PFController
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $tipo;
 
-            echo "Olá " . $_SESSION['nome'];
+            header('Location: ?action=mural-vagas');
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
@@ -114,6 +130,9 @@ class PFController
     }
 
     public function Candidatar()
-    {}
+    {
+        $this->ChecarAutorizacao();
+        $this->candidaturasModel->Registrar($_GET['cod'], $_SESSION['usuario']);
+    }
 }
 ?>

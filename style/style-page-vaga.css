@@ -26,19 +26,20 @@
 .candidatacao
 {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     background-color: #A47ACA;
     border-radius: 10px;
     padding: 30px;
-    width: 80%;
+    width: 50%;
     justify-self: center;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
-.candidatacao-info
+.candidatacao a
 {
-    width: 50%;
+    text-decoration: none;
 }
 
 .categoria-vaga, .tipo-vaga

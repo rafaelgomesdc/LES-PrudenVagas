@@ -82,9 +82,9 @@
         <div class="candidatacao">
             <div class="candidatacao-info">
                 <h1 class="titulo-candidatacao">Candidate-se</h1>
-                <p>Ao enviar o seu currículo a empresa receberá sua candidatação.</p>
+                <p>Ao clicar em "Candidatar-se" a empresa receberá sua candidatação.</p>
             </div>
-            <a>Candidatar-se</a>
+            <a href="<?= base_url ?>public/index.php?action=candidatar-se&cod=<?= $v['codigo'] ?>" id="botao">Candidatar-se</a>
         </div>
     </section>
 
