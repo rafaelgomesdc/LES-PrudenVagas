@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../../core/Database.php";
 require_once __DIR__ . "/../../models/PJ.php";
 require_once __DIR__ . "/../../models/Vaga.php";
+require_once __DIR__ . "/../../models/PF.php";
 
 class PJController
 {
@@ -14,7 +15,7 @@ class PJController
         $database = new Database();
         $db = $database->connect();
 
-        define('base_url', 'http://127.0.0.1/LabES/LES-PrudenVagas/');
+        define('base_url', 'http://127.0.0.1/localhost/PrudenVagas/');
 
         $this->pjModel = new PessoaJuridica($db);
         $this->vagasModel = new Vaga($db);
@@ -63,14 +64,19 @@ class PJController
             if (!$this->pjModel->Find($_POST['inputCNPJ']))
             {
                 $dados = [
-                    'cnpj' => $_POST['inputCNPJ'],
-                    'razao_social' => $_POST['inputRazaoSocial'],
+                'cnpj'        => $_POST['inputCNPJ'],
+                'razao_social' => $_POST['inputRazaoSocial'],
                     'nome_fantasia' => $_POST['inputNomeFantasia'],
                     'ie' => $_POST['inputIE'],
                     'telefone' => $_POST['inputTelefone'] ?? null,
-                    'email' => $_POST['inputEmailEmpresa'],
-                    'senha' => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT)
-                ];
+                'email'       => $_POST['inputEmailEmpresa'],
+                'senha'       => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
+                'cep'         => $_POST['inputCEP'] ?? null,
+                'logradouro'  => $_POST['inputLogradouro'] ?? null,
+                'bairro'      => $_POST['inputBairro'] ?? null,
+                'cidade'      => $_POST['inputCidade'] ?? null,
+                'estado'      => $_POST['inputEstado'] ?? null
+            ];
 
                 //$this->pjModel->Registrar($dados);
                 if ($this->pjModel->Registrar($dados)) {
