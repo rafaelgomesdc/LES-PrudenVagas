@@ -33,6 +33,9 @@ switch ($action)
     case 'gerenciar-vagas':
         $pjController->GerenciarVagas();
         break;
+    case 'banco-talentos':
+        $pjController->BancoTalentos();
+        break;
     
     //Pessoa Física
     case 'view-cadastrar-pf':
@@ -60,6 +63,9 @@ switch ($action)
         break;
     case 'view-vaga':
         $vagasController->ViewVaga();
+        break;
+    case 'edit-vaga':
+        $vagasController->ViewEditar();
         break;
     case 'cadidatar-se':
         break;

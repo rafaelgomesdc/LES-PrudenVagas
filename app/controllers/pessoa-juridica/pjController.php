@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../../core/Database.php";
 require_once __DIR__ . "/../../models/PJ.php";
 require_once __DIR__ . "/../../models/Vaga.php";
+require_once __DIR__ . "/../../models/PF.php";
 
 class PJController
 {
@@ -14,7 +15,7 @@ class PJController
         $database = new Database();
         $db = $database->connect();
 
-        define('base_url', 'http://127.0.0.1/LabES/LES-PrudenVagas/');
+        define('base_url', 'http://127.0.0.1/localhost/PrudenVagas/');
 
         $this->pjModel = new PessoaJuridica($db);
         $this->vagasModel = new Vaga($db);
@@ -64,11 +65,16 @@ class PJController
             if ($this->pjModel->Find($_POST['inputCNPJ']) === false)
             {
                 $dados = [
-                    'cnpj' => $_POST['inputCNPJ'],
-                    'razaoSocial' => $_POST['inputRazaoSocial'],
-                    'email' => $_POST['inputEmailEmpresa'],
-                    'senha' => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT)
-                ];
+                'cnpj'        => $_POST['inputCNPJ'],
+                'razaoSocial' => $_POST['inputRazaoSocial'],
+                'email'       => $_POST['inputEmailEmpresa'],
+                'senha'       => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
+                'cep'         => $_POST['inputCEP'] ?? null,
+                'logradouro'  => $_POST['inputLogradouro'] ?? null,
+                'bairro'      => $_POST['inputBairro'] ?? null,
+                'cidade'      => $_POST['inputCidade'] ?? null,
+                'estado'      => $_POST['inputEstado'] ?? null
+            ];
 
                 $this->pjModel->Registrar($dados);
             }
@@ -79,6 +85,16 @@ class PJController
             $this->ViewLogin();
         }
     }
+
+        public function BancoTalentos()
+        {
+            $this->ChecarAutorizacao();
+            
+            $pfModel = new PessoaFisica($this->db);
+            $candidatos = $pfModel->All();
+
+            require __DIR__ . "/../../views/pessoa-juridica/banco-talentos.php";
+        }
 
     public function Login()
     {
