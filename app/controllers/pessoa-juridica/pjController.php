@@ -60,23 +60,31 @@ class PJController
     {
         if (isset($_POST['inputCNPJ']) && isset($_POST['inputRazaoSocial']) && isset($_POST['inputEmailEmpresa']) && isset($_POST['inputSenhaEmpresa']))
         {
-            if ($this->pjModel->Find($_POST['inputCNPJ']) === false)
+            if (!$this->pjModel->Find($_POST['inputCNPJ']))
             {
                 $dados = [
                     'cnpj' => $_POST['inputCNPJ'],
-                    'razaoSocial' => $_POST['inputRazaoSocial'],
+                    'razao_social' => $_POST['inputRazaoSocial'],
+                    'nome_fantasia' => $_POST['inputNomeFantasia'],
+                    'ie' => $_POST['inputIE'],
+                    'telefone' => $_POST['inputTelefone'] ?? null,
                     'email' => $_POST['inputEmailEmpresa'],
                     'senha' => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT)
                 ];
 
-                $this->pjModel->Registrar($dados);
+                //$this->pjModel->Registrar($dados);
+                if ($this->pjModel->Registrar($dados)) {
+                    echo "Cadastrado com sucesso!";
+                } else {
+                    echo "Erro ao cadastrar.";
+                }
             }
             else{
                 echo "cnpj já cadastrado.";
             }
-            
-            $this->ViewLogin();
         }
+
+        $this->ViewLogin();
     }
 
     public function Login()
@@ -99,6 +107,7 @@ class PJController
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
+            $this->ViewCadastrar();
         }
         elseif (!password_verify($senha, $usuario['senha'])) {
             echo "Senha inválida.";

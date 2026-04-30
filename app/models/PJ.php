@@ -12,23 +12,23 @@ class PessoaJuridica
 
     public function Registrar($dados)
     {
-        // Verifica se o CNPJ já existe
-        if ($this->Find($dados['cnpj']) === null)
-        {
-            // Query atualizada para campos de PJ
-            $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, telefone, email) 
-                    VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :telefone, :email)";
-            $stmt = $this->conn->prepare($sql);
+        // Query atualizada para campos de PJ
+        $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, email, senha, telefone) 
+                VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :email, :senha, :telefone)";
+        $stmt = $this->conn->prepare($sql);
+        echo "CADASTRADO";
 
-            return $stmt->execute([
-                ':cnpj' => $dados['cnpj'],
-                ':razao_social' => $dados['razao_social'],
-                ':nome_fantasia' => $dados['nome_fantasia'],
-                ':ie' => $dados['ie'],
-                ':telefone' => $dados['telefone'],
-                ':email' => $dados['email']
-            ]);
-        }
+        return $stmt->execute([
+            ':cnpj' => $dados['cnpj'],
+            ':razao_social' => $dados['razao_social'],
+            ':nome_fantasia' => $dados['nome_fantasia'],
+            ':ie' => $dados['ie'],
+            ':telefone' => $dados['telefone'],
+            ':email' => $dados['email'],
+            ':senha' => $dados['senha']
+        ]);
+
+        echo "ERRO";
 
         // Caso o CNPJ já exista
         return false;
