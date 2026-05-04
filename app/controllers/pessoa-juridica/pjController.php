@@ -15,7 +15,7 @@ class PJController
         $database = new Database();
         $db = $database->connect();
 
-        define('base_url', 'http://127.0.0.1/localhost/PrudenVagas/');
+        define('base_url', 'http://127.0.0.1/LES-PrudenVagas/');
 
         $this->pjModel = new PessoaJuridica($db);
         $this->vagasModel = new Vaga($db);
@@ -56,7 +56,6 @@ class PJController
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
     }
 
-    //Métodos CRUD
     public function Cadastrar()
     {
         if (isset($_POST['inputCNPJ']) && isset($_POST['inputRazaoSocial']) && isset($_POST['inputEmailEmpresa']) && isset($_POST['inputSenhaEmpresa']))
@@ -71,6 +70,7 @@ class PJController
                     'telefone' => $_POST['inputTelefone'] ?? null,
                 'email'       => $_POST['inputEmailEmpresa'],
                 'senha'       => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
+                'categoria'   => $_POST['inputCategoria'] ?? null,
                 'cep'         => $_POST['inputCEP'] ?? null,
                 'logradouro'  => $_POST['inputLogradouro'] ?? null,
                 'bairro'      => $_POST['inputBairro'] ?? null,
@@ -88,6 +88,20 @@ class PJController
             else{
                 echo "cnpj já cadastrado.";
             }
+            
+            $this->ViewLogin();
+        }
+    }
+
+    public function BancoTalentos()
+    {
+        $this->ChecarAutorizacao();
+            
+        $pfModel = new PessoaFisica($this->db);
+        $candidatos = $pfModel->All();
+
+        require __DIR__ . "/../../views/pessoa-juridica/banco-talentos.php";
+    }
         }
 
         $this->ViewLogin();

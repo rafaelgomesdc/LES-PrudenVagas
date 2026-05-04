@@ -49,6 +49,14 @@
                     <br>
                     <input type="date" id="Data" placeholder="Data Nascimento" name="inputDataNasc" require>
                     <input type="text" placeholder="Telefone" name="inputTelefone" require>
+                    <div class="cep" style="display: flex; gap: 5px;">
+                        <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required style="width: 40%;">
+                        <p style="font-size: 10px; align-self: center;">(Preenchimento automático)</p>
+                    </div>
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro" readonly>
+                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" readonly>
+                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" readonly>
+                    <input type="text" name="estado" id="estado" placeholder="Estado" readonly>
 <!--
                     <select name="inputEnsino" id="selectOpcoes" onchange="gerenciarCampos()">
                         <option value="Nada">Escolha o Nível de Escolaridade</option>
