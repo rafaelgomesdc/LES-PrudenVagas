@@ -63,19 +63,19 @@ class PJController
             if (!$this->pjModel->Find($_POST['inputCNPJ']))
             {
                 $dados = [
-                'cnpj'        => $_POST['inputCNPJ'],
-                'razao_social' => $_POST['inputRazaoSocial'],
-                    'nome_fantasia' => $_POST['inputNomeFantasia'],
-                    'ie' => $_POST['inputIE'],
-                    'telefone' => $_POST['inputTelefone'] ?? null,
-                'email'       => $_POST['inputEmailEmpresa'],
-                'senha'       => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
-                'categoria'   => $_POST['inputCategoria'] ?? null,
-                'cep'         => $_POST['inputCEP'] ?? null,
-                'logradouro'  => $_POST['inputLogradouro'] ?? null,
-                'bairro'      => $_POST['inputBairro'] ?? null,
-                'cidade'      => $_POST['inputCidade'] ?? null,
-                'estado'      => $_POST['inputEstado'] ?? null
+                'cnpj'          => $_POST['inputCNPJ'],
+                'razao_social'  => $_POST['inputRazaoSocial'],
+                'nome_fantasia' => $_POST['inputNomeFantasia'],
+                'ie'            => $_POST['inputIE'],
+                'telefone'      => $_POST['inputTelefone'] ?? null,
+                'email'         => $_POST['inputEmailEmpresa'],
+                'senha'         => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
+                'categoria'     => $_POST['inputCategoria'] ?? null,
+                'cep'           => $_POST['inputCEP'] ?? null,
+                'logradouro'    => $_POST['inputLogradouro'] ?? null,
+                'bairro'        => $_POST['inputBairro'] ?? null,
+                'cidade'        => $_POST['inputCidade'] ?? null,
+                'estado'        => $_POST['inputEstado'] ?? null
             ];
 
                 //$this->pjModel->Registrar($dados);

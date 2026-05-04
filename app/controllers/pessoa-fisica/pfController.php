@@ -62,12 +62,13 @@ class PFController
                 'rg'         => $_POST['inputRG'],
                 'data_nasc'  => $_POST['inputDataNasc'],
                 'telefone'   => $_POST['inputTelefone'],
-                'senha'      => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT),
+                'biografia'  => $_POST['inputBiografia'],
                 'cep'        => $cepLimpo,
                 'logradouro' => $_POST['inputLogradouro'],
                 'bairro'     => $_POST['inputBairro'],
                 'cidade'     => $_POST['inputCidade'],
-                'estado'     => $_POST['inputEstado']
+                'estado'     => $_POST['inputEstado'],
+                'senha'      => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT)
             ];
 
             if ($this->pfModel->Registrar($dados)) {
