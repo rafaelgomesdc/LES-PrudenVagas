@@ -26,9 +26,7 @@ class PJController
             session_start();
         
         if (!isset($_SESSION['usuario']) || $_SESSION['tipo'] != "pj")
-        {
-            session_destroy();
-            
+        {            
             echo "não logado";
             header('Location: ?action=view-login-pj');
             exit;

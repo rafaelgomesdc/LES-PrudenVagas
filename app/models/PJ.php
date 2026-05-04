@@ -16,7 +16,7 @@ class PessoaJuridica
         if ($this->Find($dados['cnpj']) === null)
         {
             // Query atualizada para campos de PJ
-            $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, telefone, email) 
+            $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, email, telefone, categoria, senha) 
                     VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :telefone, :email)";
             $stmt = $this->conn->prepare($sql);
 
@@ -25,8 +25,10 @@ class PessoaJuridica
                 ':razao_social' => $dados['razao_social'],
                 ':nome_fantasia' => $dados['nome_fantasia'],
                 ':ie' => $dados['ie'],
+                ':email' => $dados['email'],
                 ':telefone' => $dados['telefone'],
-                ':email' => $dados['email']
+                ':categoria' => $dados['categoria'],
+                ':senha' => $dados['senha']
             ]);
         }
 
@@ -49,7 +51,7 @@ class PessoaJuridica
 
     public function All()
     {
-        $stmt = $this->conn->query("SELECT cnpj, razao_social, email, telefone, categoria FROM {$this->table}");
+        $stmt = $this->conn->query("SELECT cnpj, razao_social, nome_fantasia, ie, email, telefone, categoria FROM {$this->table}");
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
