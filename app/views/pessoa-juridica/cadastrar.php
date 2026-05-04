@@ -38,27 +38,28 @@
                 <!-- Action apontando para a função de processamento no Controller -->
                 <form id="formCadastro" method="POST" action="public/index.php?action=cadastrar-pj">
                     
-                    <input type="text" placeholder="Razão Social" name="razao_social" required>
-                    <input type="text" placeholder="Nome Fantasia" name="nome_fantasia" required>
+                    <input type="text" placeholder="Razão Social" name="inputRazaoSocial" required>
+                    <input type="text" placeholder="Nome Fantasia" name="inputNomeFantasia" required>
                     
-                    <input type="text" placeholder="CNPJ (00.000.000/0000-00)" name="cnpj" id="inputCNPJ" required maxlength="18">
+                    <input type="text" placeholder="CNPJ (00.000.000/0000-00)" name="inputCNPJ" id="inputCNPJ" required maxlength="18">
                     <span id="status-cnpj">Digite um CNPJ válido</span>
 
-                    <input type="text" placeholder="Inscrição Estadual" name="ie">
-                    <input type="text" placeholder="Telefone Comercial" name="telefone" required>
+                    <input type="text" placeholder="Inscrição Estadual" name="inputIE">
+                    <input type="text" placeholder="Telefone Comercial" name="inputTelefone" required>
+                    <input type="text" placeholder="Categoria" name="inputCategoria" required>
 
                     <div style="display: flex; gap: 5px;">
-                        <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required style="width: 40%;">
+                        <input type="text" name="inputCEP" id="cep" placeholder="CEP" maxlength="9" required style="width: 40%;">
                         <p style="font-size: 10px; align-self: center;">(Preenchimento automático)</p>
                     </div>
 
-                    <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro" readonly>
-                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" readonly>
-                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" readonly>
-                    <input type="text" name="estado" id="estado" placeholder="Estado" readonly>
+                    <input type="text" name="inputLogradouro" id="logradouro" placeholder="Logradouro" readonly>
+                    <input type="text" name="inputBairro" id="bairro" placeholder="Bairro" readonly>
+                    <input type="text" name="inputCidade" id="cidade" placeholder="Cidade" readonly>
+                    <input type="text" name="inputEstado" id="estado" placeholder="Estado" readonly>
                     
-                    <input type="email" placeholder="Email Comercial" name="email" required>
-                    <input type="password" placeholder="Senha de Acesso" name="senha" required>
+                    <input type="email" placeholder="Email Comercial" name="inputEmailEmpresa" required>
+                    <input type="password" placeholder="Senha de Acesso" name="inputSenhaEmpresa" required>
                     
                     <br>
                     <button type="submit" class="submit" id="botao">FINALIZAR CADASTRO</button>

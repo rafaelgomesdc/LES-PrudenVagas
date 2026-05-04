@@ -15,7 +15,7 @@ class PJController
         $database = new Database();
         $db = $database->connect();
 
-        define('base_url', 'http://127.0.0.1/LES-PrudenVagas/');
+        define('base_url', 'http://127.0.0.1/LabES/LES-PrudenVagas/');
 
         $this->pjModel = new PessoaJuridica($db);
         $this->vagasModel = new Vaga($db);
@@ -51,6 +51,7 @@ class PJController
     {
         $this->ChecarAutorizacao();
         echo "Olá, " . $_SESSION['nome'];
+        echo "CNPJ: " . $_SESSION['usuario'];
 
         $vagas = $this->vagasModel->All();
 
@@ -61,20 +62,23 @@ class PJController
     {
         if (isset($_POST['inputCNPJ']) && isset($_POST['inputRazaoSocial']) && isset($_POST['inputEmailEmpresa']) && isset($_POST['inputSenhaEmpresa']))
         {
-            if ($this->pjModel->Find($_POST['inputCNPJ']) === false)
+            if ($this->pjModel->Find($_POST['inputCNPJ']) === null)
             {
                 $dados = [
-                'cnpj'        => $_POST['inputCNPJ'],
-                'razaoSocial' => $_POST['inputRazaoSocial'],
-                'email'       => $_POST['inputEmailEmpresa'],
-                'senha'       => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
-                'categoria'   => $_POST['inputCategoria'] ?? null,
-                'cep'         => $_POST['inputCEP'] ?? null,
-                'logradouro'  => $_POST['inputLogradouro'] ?? null,
-                'bairro'      => $_POST['inputBairro'] ?? null,
-                'cidade'      => $_POST['inputCidade'] ?? null,
-                'estado'      => $_POST['inputEstado'] ?? null
-            ];
+                'cnpj'          => $_POST['inputCNPJ'],
+                'razao_social'  => $_POST['inputRazaoSocial'],
+                'nome_fantasia' => $_POST['inputNomeFantasia'],
+                'ie'            => $_POST['inputIE'],
+                'email'         => $_POST['inputEmailEmpresa'],
+                'telefone'      => $_POST['inputTelefone'],
+                'categoria'     => $_POST['inputCategoria'] ?? null,
+                'senha'         => password_hash($_POST['inputSenhaEmpresa'], PASSWORD_DEFAULT),
+                'cep'           => $_POST['inputCEP'] ?? null,
+                'logradouro'    => $_POST['inputLogradouro'] ?? null,
+                'bairro'        => $_POST['inputBairro'] ?? null,
+                'cidade'        => $_POST['inputCidade'] ?? null,
+                'estado'        => $_POST['inputEstado'] ?? null
+                ];
 
                 $this->pjModel->Registrar($dados);
             }
