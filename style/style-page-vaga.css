@@ -50,6 +50,17 @@
     max-width: fit-content;
 }
 
+#botao{
+    width: auto;
+    background: #015958;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 /*
 .dicas
 {

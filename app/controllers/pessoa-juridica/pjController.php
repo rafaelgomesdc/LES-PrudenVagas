@@ -100,10 +100,6 @@ class PJController
 
         require __DIR__ . "/../../views/pessoa-juridica/banco-talentos.php";
     }
-        }
-
-        $this->ViewLogin();
-    }
 
     public function Login()
     {

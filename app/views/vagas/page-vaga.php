@@ -68,20 +68,6 @@ if (session_status() !== PHP_SESSION_ACTIVE)
         <p class="sobre-empresa">
             <?= $pj['razao_social'] ?> | <?= $pj['categoria']; ?>
         </p>
-
-<!--
-        <h3 class="atividades">Atividades a serem desenvolvidas:</h3>
-        <p class="atividades">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut rem quia repellat, maxime facilis iste harum explicabo sequi possimus, fugiat voluptatum molestias nihil magni accusantium, incidunt nesciunt magnam! Possimus, sunt.
-        </p>
-
-        <h3 class="requisitos">Requisitos:</h3>
-        <ul>
-            <li>Requisito 1</li>
-            <li>Requisito 2</li>
-            <li>Requisito 3</li>
-        </ul>
--->
         
         <div class="candidatacao">
             <div class="candidatacao-info">
