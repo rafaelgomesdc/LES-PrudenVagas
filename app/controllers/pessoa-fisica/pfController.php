@@ -78,6 +78,7 @@ class PFController
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $tipo;
 
+            $vagas = $this->vagasModel->All();
             require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
         }
         elseif (!$usuario) {
