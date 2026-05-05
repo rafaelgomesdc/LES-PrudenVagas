@@ -14,17 +14,24 @@ class PessoaFisica
     {
         if ($this->Find($dados['CPF']) === null)
         {
-            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, telefone, senha) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :telefone, :senha)";
+            $sql = "INSERT INTO {$this->table} (CPF, nome, sobrenome, rg, data_nasc, email, telefone, biografia, cep, logradouro, bairro, cidade, estado, senha) VALUES (:CPF, :nome, :sobrenome, :rg, :data_nasc, :email, :telefone, :biografia, :cep, :logradouro, :bairro, :cidade, :estado, :senha)";
             $stmt = $this->conn->prepare($sql);
 
             return $stmt->execute([
-                ':CPF' => $dados['CPF'],
-                ':nome' => $dados['nome'],
-                ':sobrenome' => $dados['sobrenome'],
-                ':rg' => $dados['rg'],
-                ':data_nasc' => $dados['data_nasc'],
-                ':telefone' => $dados['telefone'],
-                ':senha' => $dados['senha']
+                ':CPF'          => $dados['CPF'],
+                ':nome'         => $dados['nome'],
+                ':sobrenome'    => $dados['sobrenome'],
+                ':rg'           => $dados['rg'],
+                ':data_nasc'    => $dados['data_nasc'],
+                ':email'        => $dados['email'],
+                ':telefone'     => $dados['telefone'],
+                ':biografia'    => $dados['biografia'],
+                ':cep'          => $dados['cep'],
+                ':logradouro'   => $dados['logradouro'],
+                ':bairro'       => $dados['bairro'],
+                ':cidade'       => $dados['cidade'],
+                ':estado'       => $dados['estado'],
+                ':senha'        => $dados['senha']
             ]);
         }
         return false;

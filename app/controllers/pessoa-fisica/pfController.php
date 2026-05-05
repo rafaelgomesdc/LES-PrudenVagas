@@ -61,8 +61,10 @@ class PFController
                 'sobrenome'  => $_POST['inputSobrenome'],
                 'rg'         => $_POST['inputRG'],
                 'data_nasc'  => $_POST['inputDataNasc'],
+                'email'      => $_POST['inputEmail'],
                 'telefone'   => $_POST['inputTelefone'],
-                'biografia'  => $_POST['inputBiografia'],
+                'bigrafia'   => $_POST['inputBiografia'],
+                'senha'      => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT),
                 'cep'        => $cepLimpo,
                 'logradouro' => $_POST['inputLogradouro'],
                 'bairro'     => $_POST['inputBairro'],
@@ -96,7 +98,8 @@ class PFController
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $tipo;
 
-            header('Location: ?action=mural-vagas');
+            $vagas = $this->vagasModel->All();
+            require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
@@ -107,10 +110,14 @@ class PFController
         }
     }
 
-    public function Candidatar()
+    public function Logout()
     {
-        $this->ChecarAutorizacao();
-        $this->candidaturasModel->Registrar($_GET['cod'], $_SESSION['usuario']);
+        if (session_status() === PHP_SESSION_ACTIVE)
+        {
+            session_destroy();
+        }
+
+        $this->ViewLogin();
     }
 }
 ?>

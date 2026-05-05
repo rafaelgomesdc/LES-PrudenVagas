@@ -1,3 +1,7 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE)
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +25,7 @@
                 <h1>PrudenVagas</h1>
             </div>
             <?php if (isset($_SESSION['usuario'])): ?>
-            <h2><a href="<?= base_url ?>public/index.php?action=logout-pj">Sair</a></h2>
+            <h2><a href="<?= base_url ?>public/index.php?action=logout-pf">Sair</a></h2>
             <?php endif; ?>
         </div>
     </header>
@@ -30,7 +34,7 @@
         <ul>
             <a href="<?= base_url ?>public/index.php?action=mural-vagas"><li>Mural de Vagas</li></a>
             <a href="#"><li>Empresas</li></a>
-            <a href="perfil-candidato.php"><li>Perfil do Candidato</li></a>
+            <a href="<?= base_url ?>public/index.php?action=view-perfil-candidato"><li>Perfil do Candidato</li></a>
             <?php if (!isset($_SESSION['usuario'])): ?>
             <li class="nav-element-drop">
                 <a>Cadastrar</a>
