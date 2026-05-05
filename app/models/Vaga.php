@@ -52,6 +52,15 @@ class Vaga
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function AllFromCnpj($cnpj)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE pessoas_juridicas_cnpj = :cnpj";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':cnpj' => $cnpj]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function Find($cod)
     {
         $sql = "SELECT * FROM {$this->table} WHERE codigo = :cod";

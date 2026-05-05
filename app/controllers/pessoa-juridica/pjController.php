@@ -49,7 +49,7 @@ class PJController
     {
         $this->ChecarAutorizacao();
 
-        $vagas = $this->vagasModel->All();
+        $vagas = $this->vagasModel->AllFromCnpj($_SESSION['usuario']);
 
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";
     }
