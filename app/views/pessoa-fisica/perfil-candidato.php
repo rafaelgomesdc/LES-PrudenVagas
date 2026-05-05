@@ -33,7 +33,6 @@ if (session_status() !== PHP_SESSION_ACTIVE)
         <ul>
             <a href="<?= base_url ?>public/index.php?action=mural-vagas"><li>Mural de Vagas</li></a>
             <a href="#"><li>Empresas</li></a>
-            <a href="perfil-candidato.php"><li>Perfil do Candidato</li></a>
             <?php if (!isset($_SESSION['usuario'])): ?>
             <li class="nav-element-drop">
                 <a>Cadastrar</a>
