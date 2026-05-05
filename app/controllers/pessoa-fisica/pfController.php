@@ -129,6 +129,8 @@ class PFController
     {
         $this->ChecarAutorizacao();
         $this->candidaturasModel->Registrar($_GET['cod'], $_SESSION['usuario']);
+
+        header('Location: ?action=view-vaga&cod=' . $_GET['cod'] . '&cnpj=' . $_GET['cnpj']);
     }
 }
 ?>

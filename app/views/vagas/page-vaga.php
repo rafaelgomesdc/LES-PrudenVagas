@@ -74,7 +74,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
                 <h1 class="titulo-candidatacao">Candidate-se</h1>
                 <p>Ao clicar em "Candidatar-se" a empresa receberá sua candidatação.</p>
             </div>
-            <a href="<?= base_url ?>public/index.php?action=candidatar-se&cod=<?= $v['codigo'] ?>" id="botao">Candidatar-se</a>
+            <a href="<?= base_url ?>public/index.php?action=candidatar-se&cod=<?= $v['codigo'] ?>&cnpj=<?= $pj['cnpj'] ?>" id="botao">Candidatar-se</a>
         </div>
     </section>
 
