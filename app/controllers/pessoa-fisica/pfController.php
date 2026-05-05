@@ -78,7 +78,7 @@ class PFController
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $tipo;
 
-            echo "Olá " . $_SESSION['nome'];
+            require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
@@ -86,6 +86,16 @@ class PFController
         elseif (!password_verify($senha, $usuario['senha'])) {
             echo "Senha inválida.";
         }
+    }
+
+    public function Logout()
+    {
+        if (session_status() === PHP_SESSION_ACTIVE)
+        {
+            session_destroy();
+        }
+
+        $this->ViewLogin();
     }
 }
 ?>

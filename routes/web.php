@@ -50,6 +50,9 @@ switch ($action)
     case 'login-pf':
         $pfController->Login();
         break;
+    case 'logout-pf':
+        $pfController->Logout();
+        break;
 
     //Vagas
     case 'view-cadastrar-vaga':
