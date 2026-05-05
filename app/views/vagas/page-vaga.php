@@ -1,3 +1,7 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE)
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +24,7 @@
                 <h1>PrudenVagas</h1>
             </div>
             <?php if (isset($_SESSION['usuario'])): ?>
-            <h2><a href="<?= base_url ?>public/index.php?action=logout-pj">Sair</a></h2>
+            <h2><a href="<?= base_url ?>public/index.php?action=logout-pf">Sair</a></h2>
             <?php endif; ?>
         </div>
     </header>

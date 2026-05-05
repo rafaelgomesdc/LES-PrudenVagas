@@ -33,6 +33,9 @@ switch ($action)
     case 'gerenciar-vagas':
         $pjController->GerenciarVagas();
         break;
+    case 'banco-talentos':
+        $pjController->BancoTalentos();
+        break;
     
     //Pessoa Física
     case 'view-cadastrar-pf':
@@ -46,6 +49,9 @@ switch ($action)
         break;
     case 'login-pf':
         $pfController->Login();
+        break;
+    case 'logout-pf':
+        $pfController->Logout();
         break;
     case 'candidatar-se':
         $pfController->Candidatar();
@@ -63,6 +69,9 @@ switch ($action)
         break;
     case 'view-vaga':
         $vagasController->ViewVaga();
+        break;
+    case 'edit-vaga':
+        $vagasController->ViewEditar();
         break;
     //Não logado
     case 'mural-vagas':

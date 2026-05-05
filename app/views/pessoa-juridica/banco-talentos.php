@@ -1,3 +1,7 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE)
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,23 +36,33 @@
 
     <section class="mural-candidatos">
         <div class="container-mural-candidatos">
-            <div class="card-candidato">
-                <a href="#">
-                <img src="assets/img/logo-exemplo.png">
-                <h2>Nome do Candidato</h2>
-                <div class="interesses">
-                    <h3>Estágio</h3>
-                    <h3>Presencial</h3>
-                </div>
-                <p><strong>Cidade:</strong> Nome da Cidade</p>
-                <ul class="habilidades">
-                    <li>habilidade 1</li>
-                    <li>habilidade 2</li>
-                    <li>habilidade 3</li>
-                </ul>
-                <p class="btn"><strong>Ver Perfil</strong></p>
-                </a>
-            </div>
+            <?php if (!empty($candidatos)): ?>
+                <?php foreach ($candidatos as $candidato): ?>
+                    <div class="card-candidato">
+                        <a href="public/index.php?action=ver-perfil&id=<?= $candidato['CPF'] ?>">
+                            <img src="assets/img/logo-exemplo.png" alt="Foto de <?= htmlspecialchars($candidato['nome']) ?>">
+                            
+                            <h2><?= htmlspecialchars($candidato['nome'] . " " . $candidato['sobrenome']) ?></h2>
+                            
+                            <div class="interesses">
+                                <!-- Aqui você pode expandir para categorias reais do seu banco -->
+                                <h3>Candidato</h3>
+                                <h3>Disponível</h3>
+                            </div>
+
+                            <p><strong>Cidade:</strong> <?= htmlspecialchars($candidato['cidade']) ?></p>
+                            
+                            <div class="biografia-resumo">
+                                <p><?= htmlspecialchars(substr($candidato['biografia'], 0, 80)) ?>...</p>
+                            </div>
+
+                            <p class="btn"><strong>Ver Perfil Completo</strong></p>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhum candidato encontrado no momento.</p>
+            <?php endif; ?>
         </div>
     </section>
 

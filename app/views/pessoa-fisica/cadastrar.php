@@ -48,90 +48,18 @@
                     <label for="Data" style="display: block;">Data de Nascimento:</label>
                     <br>
                     <input type="date" id="Data" placeholder="Data Nascimento" name="inputDataNasc" require>
+                    <input type="email" placeholder="Email" name="inputEmail" require>
                     <input type="text" placeholder="Telefone" name="inputTelefone" require>
-<!--
-                    <select name="inputEnsino" id="selectOpcoes" onchange="gerenciarCampos()">
-                        <option value="Nada">Escolha o Nível de Escolaridade</option>
-                        <option value="FundInco">Ensino Fundamental Incompleto</option>
-                        <option value="FundCom">Ensino Fundamental Completo</option>
-                        <option value="MediIncom">Ensino Médio Incompleto</option>
-                        <option value="MediCom">Ensino Médio Completo</option>
-                        <option value="SupIncom">Superior Incompleto</option>
-                        <option value="SupCom">Superior Completo</option>
-                        <option value="PosGra">Pós-Graduação</option>
-                    </select>
+                    <input type="text" placeholder="Biografia" name="inputBiografia">
+                    <div class="cep" style="display: flex; gap: 5px;">
+                        <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required style="width: 40%;">
+                        <p style="font-size: 10px; align-self: center;">(Preenchimento automático)</p>
+                    </div>
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro" readonly>
+                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" readonly>
+                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" readonly>
+                    <input type="text" name="estado" id="estado" placeholder="Estado" readonly>
 
-                    
-                    <input type="text" id="campoOculto" style="display: none;" placeholder="Qual o Curso?" name="InputCurso_incom">
-                    <input type="text" id="campoOculto2" style="display: none;" placeholder="instituição do curso" name="inputInsti_incom">
-                    <input type="text" id="campoOculto3" style="display: none;" placeholder="Período do Curso" name="inputPerio_incom">
-                    <label for="campoOculto4" class="label-data" style="display: none;">Data prevista para fim do Curso:</label>
-                    <input type="date" id="campoOculto4" style="display: none;" placeholder="Data prevista para acabar" name="dataFim_incom">
-                    
-
-                    <input type="text" id="campoOculto01" style="display: none;" placeholder="Qual o Curso?" name="InputCurso_comp">
-                    <input type="text" id="campoOculto02" style="display: none;" placeholder="instituição em que cursou" name="inputInsti_comp">
-                    <label for="campoOculto03" class="label-data" style="display: none;">Data fim do Curso:</label>
-                    <input type="date" id="campoOculto03" style="display: none;" placeholder="Data prevista para acabar" name="dataFim_comp">
-
-                    <script>
-                        const STYLE_VISIVEL = 'width: 60%; padding: 10px; margin: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;';
-                        const STYLE_OCULTO = 'display: none;';
-
-                        function gerenciarCampos() {
-                            const select = document.getElementById('selectOpcoes');
-                            const valorSelecionado = select.value;
-
-                            const camposIncompleto = [
-                                document.getElementById('campoOculto'),
-                                document.getElementById('campoOculto2'),
-                                document.getElementById('campoOculto3'),
-                                document.getElementById('campoOculto4')
-                            ];
-
-                            const labelDataIncompleto = document.querySelector('label[for="campoOculto4"]');
-
-                            const camposCompleto = [
-                                document.getElementById('campoOculto01'),
-                                document.getElementById('campoOculto02'),
-                                document.getElementById('campoOculto03')
-                            ];
-
-                            const labelDataCompleto = document.querySelector('label[for="campoOculto03"]');
-
-                            function atualizarExibicao(campos, label, deveMostrar) {
-                                const style = deveMostrar ? STYLE_VISIVEL : STYLE_OCULTO;
-                                campos.forEach(campo => {
-                                    if (campo) {
-                                        campo.style.cssText = style;
-                                    }
-                                });
-
-                                if (label) {
-                                    if (deveMostrar) {
-                                        label.style.display = 'block';
-                                        } else {
-                                            label.style.display = 'none';
-                                }
-                }
-                            }
-                            
-                            if (valorSelecionado === 'SupIncom') {
-                                atualizarExibicao(camposIncompleto, labelDataIncompleto, true);
-                                atualizarExibicao(camposCompleto, labelDataCompleto, false);
-                                
-                            } else if (valorSelecionado === 'SupCom' || valorSelecionado === 'PosGra') {
-                                atualizarExibicao(camposCompleto, labelDataCompleto, true);
-                                atualizarExibicao(camposIncompleto, labelDataIncompleto, false);
-                                
-                            } else {
-                                atualizarExibicao(camposIncompleto, labelDataIncompleto, false);
-                                atualizarExibicao(camposCompleto, labelDataCompleto, false);
-                            }
-                        }
-                    </script>
--->                    
-                    <input type="email" placeholder="Email" name="inputEmail" required>
                     <input type="password" placeholder="Senha" name="inputSenha" required>
                     
                     <br>

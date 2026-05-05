@@ -14,15 +14,14 @@ class PFController
     private $validadorCPF; // [NOVO] Propriedade para o serviço
 
     public function __construct()
-    {
-        $database = new Database();
-        $db = $database->connect();
+{
+    $database = new Database();
+    $db = $database->connect();
 
-        $this->pfModel = new PessoaFisica($db);
-        $this->vagasModel = new Vaga($db);
+    $this->pfModel = new PessoaFisica($db);
+    $this->vagasModel = new Vaga($db);
         $this->candidaturasModel = new Candidaturas($db);
-        //$this->validadorCPF = new ValidadorCPFService(); // [NOVO] Inicializa o serviço
-    }
+}
 
     private function ChecarAutorizacao()
     {
@@ -49,55 +48,36 @@ class PFController
 
     public function Cadastrar()
     {
-        // Verifica se os campos obrigatórios foram enviados
-        if (isset($_POST['inputCPF'], $_POST['inputNome'], $_POST['inputSobrenome'], $_POST['inputRG'], $_POST['inputDataNasc'], $_POST['inputTelefone']))
-        {
-            $cpfRaw = $_POST['inputCPF'];
-            /*
-            // =====================================================================
-            // 1. Validação do CPF no Servidor (Segurança adicional ao JS)
-            // =====================================================================
-            $validacao = $this->validadorCPF->validarCompleto($cpfRaw);
+        if (isset($_POST['inputCPF'], $_POST['inputNome'], $_POST['inputSenha'])) {
+            // Limpeza simples de dados (sem dependências externas)
+            $cpfLimpo = preg_replace('/[^0-9]/', '', $_POST['inputCPF']);
+            $cepLimpo = preg_replace('/[^0-9]/', '', $_POST['inputCEP']);
 
-            if (!$validacao['valido']) {
-                // Se o CPF for inválido, interrompe e mostra erro
-                // Em um sistema real, você redirecionaria de volta com a mensagem
-                echo "<h1>Erro no Cadastro</h1>";
-                echo "<p style='color:red;'>" . $validacao['mensagem'] . "</p>";
-                echo "<a href='javascript:history.back()'>Voltar</a>";
-                return;
-            }
-            */
-            // =====================================================================
-            // 2. Preparação dos dados (com CPF já limpo pelo validador)
-            // =====================================================================
-            $cpfLimpo = preg_replace('/[^0-9]/', '', $cpfRaw);
             $dados = [
-                'CPF' => $cpfLimpo, // Salva apenas números no banco
-                'nome' => $_POST['inputNome'],
-                'sobrenome' => $_POST['inputSobrenome'],
-                'rg' => $_POST['inputRG'],
-                'data_nasc' => $_POST['inputDataNasc'],
-                'telefone' => $_POST['inputTelefone'],
-                'senha' => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT)
+                'CPF'        => $cpfLimpo,
+                'nome'       => $_POST['inputNome'],
+                'sobrenome'  => $_POST['inputSobrenome'],
+                'rg'         => $_POST['inputRG'],
+                'data_nasc'  => $_POST['inputDataNasc'],
+                'email'      => $_POST['inputEmail'],
+                'telefone'   => $_POST['inputTelefone'],
+                'bigrafia'   => $_POST['inputBiografia'],
+                'senha'      => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT),
+                'cep'        => $cepLimpo,
+                'logradouro' => $_POST['inputLogradouro'],
+                'bairro'     => $_POST['inputBairro'],
+                'cidade'     => $_POST['inputCidade'],
+                'estado'     => $_POST['inputEstado'],
+                'senha'      => password_hash($_POST['inputSenha'], PASSWORD_DEFAULT)
             ];
-            
-            // =====================================================================
-            // 3. Tentativa de Registro no Banco
-            // =====================================================================
-            if ($this->pfModel->Registrar($dados)) {
-                // Sucesso
-            } else {
-                // CPF já cadastrado (retorno false do model)
-                echo "<h1>Erro no Cadastro</h1>";
-                echo "<p style='color:orange;'>Este CPF já está cadastrado em nosso sistema.</p>";
-                echo "<a href='javascript:history.back()'>Voltar e corrigir</a>";
-            }
-        } else {
-            echo "Campos obrigatórios ausentes.";
-        }
 
-        $this->ViewLogin();
+            if ($this->pfModel->Registrar($dados)) {
+                // Link de redirecionamento corrigido para usar a constante base_url
+                echo "<script>alert('Cadastro realizado!'); window.location.href='".base_url."index.php?action=view-login-pf';</script>";
+            } else {
+                echo "Erro ao registrar. O CPF pode já existir.";
+            }
+        }
     }
 
     public function Login()
@@ -116,7 +96,8 @@ class PFController
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['tipo'] = $tipo;
 
-            header('Location: ?action=mural-vagas');
+            $vagas = $this->vagasModel->All();
+            require __DIR__ . "/../../views/pessoa-fisica/mural-vagas.php";
         }
         elseif (!$usuario) {
             echo "Usuário não encontrado.";
@@ -127,10 +108,14 @@ class PFController
         }
     }
 
-    public function Candidatar()
+    public function Logout()
     {
-        $this->ChecarAutorizacao();
-        $this->candidaturasModel->Registrar($_GET['cod'], $_SESSION['usuario']);
+        if (session_status() === PHP_SESSION_ACTIVE)
+        {
+            session_destroy();
+        }
+
+        $this->ViewLogin();
     }
 }
 ?>

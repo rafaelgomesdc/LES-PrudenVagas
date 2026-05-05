@@ -3,7 +3,7 @@
 class PessoaJuridica
 {
     private $conn;
-    private $table = 'pessoas_juridicas'; // TABELA ATUALIZADA
+    private $table = 'pessoas_juridicas';
 
     public function __construct($db)
     {
@@ -12,38 +12,35 @@ class PessoaJuridica
 
     public function Registrar($dados)
     {
-        // Verifica se o CNPJ já existe
-        if ($this->Find($dados['cnpj']) === null)
-        {
-            // Query atualizada para campos de PJ
-            $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, email, telefone, categoria, senha) 
-                    VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :telefone, :email)";
-            $stmt = $this->conn->prepare($sql);
 
-            return $stmt->execute([
-                ':cnpj' => $dados['cnpj'],
-                ':razao_social' => $dados['razao_social'],
-                ':nome_fantasia' => $dados['nome_fantasia'],
-                ':ie' => $dados['ie'],
-                ':email' => $dados['email'],
-                ':telefone' => $dados['telefone'],
-                ':categoria' => $dados['categoria'],
-                ':senha' => $dados['senha']
-            ]);
-        }
+        $sql = "INSERT INTO {$this->table} (cnpj, razao_social, nome_fantasia, ie, email, telefone, categoria, senha, cep, logradouro, bairro, cidade, estado) 
+                VALUES (:cnpj, :razao_social, :nome_fantasia, :ie, :email, :telefone, :categoria, :senha, :cep, :logradouro, :bairro, :cidade, :estado)";
+        $stmt = $this->conn->prepare($sql);
 
-        // Caso o CNPJ já exista
-        return false;
+        return $stmt->execute([
+            ':cnpj'             => $dados['cnpj'],
+            ':razao_social'     => $dados['razao_social'],
+            ':nome_fantasia'    => $dados['nome_fantasia'],
+            ':ie'               => $dados['ie'],
+            ':email'            => $dados['email'],
+            ':telefone'         => $dados['telefone'],
+            ':categoria'        => $dados['categoria'],
+            ':senha'            => $dados['senha'],
+            ':cep'              => $dados['cep'],
+            ':logradouro'       => $dados['logradouro'],
+            ':bairro'           => $dados['bairro'],
+            ':cidade'           => $dados['cidade'],
+            ':estado'           => $dados['estado']
+        ]);
     }
 
     public function Find($cnpj)
     {
-        // Limpa formatação para buscar apenas números
-        $cnpjLimpo = preg_replace('/[^0-9]/', '', $cnpj);
+        //$cnpjLimpo = preg_replace('/[^0-9]/', '', $cnpj);
 
         $sql = "SELECT * FROM {$this->table} WHERE cnpj = :cnpj";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cnpj' => $cnpjLimpo]);
+        $stmt->execute([':cnpj' => $cnpj]);
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result ? $result : null;
