@@ -82,6 +82,12 @@ class PFController
 
     public function Login()
     {
+        if (session_status() === PHP_SESSION_ACTIVE)
+        {
+            $_SESSION = [];
+            session_destroy();  
+        }
+
         session_start();
         
         $cpf = $_POST['inputCPF'];
@@ -110,12 +116,19 @@ class PFController
 
     public function Logout()
     {
-        if (session_status() === PHP_SESSION_ACTIVE)
-        {
-            session_destroy();
-        }
+        if (session_status() !== PHP_SESSION_ACTIVE)
+            session_start();
+
+        $_SESSION = [];
+        session_destroy();
 
         $this->ViewLogin();
+    }
+
+    public function Candidatar()
+    {
+        $this->ChecarAutorizacao();
+        $this->candidaturasModel->Registrar($_GET['cod'], $_SESSION['usuario']);
     }
 }
 ?>

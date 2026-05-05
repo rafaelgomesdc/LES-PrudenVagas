@@ -103,6 +103,12 @@ class PJController
 
     public function Login()
     {
+        if (session_status() === PHP_SESSION_ACTIVE)
+        {
+            $_SESSION = [];
+            session_destroy();
+        }  
+        
         session_start();
 
         $cnpj = $_POST['inputCNPJ'];
@@ -130,7 +136,10 @@ class PJController
 
     public function Logout()
     {
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE)
+            session_start();
+
+        $_SESSION = [];
         session_destroy();
 
         require __DIR__ . "/../../views/pessoa-juridica/login.php";
