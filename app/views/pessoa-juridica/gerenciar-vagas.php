@@ -11,6 +11,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     <base href="<?= base_url ?>">
 
     <!-- Mantendo a padronização de estilos que você já usa -->
+     <link rel="stylesheet" href="style/style-table.css">
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
     <link rel="stylesheet" href="style/style-gerenciar.css">
@@ -76,10 +77,8 @@ if (session_status() !== PHP_SESSION_ACTIVE)
             <?php else: ?>
                 <p style="margin-top: 20px;">Você ainda não cadastrou nenhuma vaga.</p>
             <?php endif; ?>
-        </div>
 
-        <div style="margin-top: 20px;">
-            <a href="public/index.php?action=view-cadastrar-vaga" class="btn-adicionar" style="padding: 10px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">+ Adicionar Nova Vaga</a>
+            <a href="public/index.php?action=view-cadastrar-vaga" id="botao">+ Adicionar Nova Vaga</a>
         </div>
     </section>
     
