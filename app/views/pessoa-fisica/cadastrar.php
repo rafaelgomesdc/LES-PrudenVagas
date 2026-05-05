@@ -113,6 +113,29 @@
             }
             e.target.value = value;
         });
+
+        // Lógica de busca de CEP (ViaCEP)
+        document.getElementById('cep').addEventListener('blur', function() {
+            let cep = this.value.replace(/\D/g, '');
+            
+            if (cep.length === 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('logradouro').value = data.logradouro;
+                            document.getElementById('bairro').value = data.bairro;
+                            document.getElementById('cidade').value = data.localidade;
+                            document.getElementById('estado').value = data.uf;
+                            this.classList.remove('campo-erro');
+                        } else {
+                            alert("CEP não encontrado.");
+                            this.classList.add('campo-erro');
+                        }
+                    })
+                    .catch(error => console.error('Erro na API ViaCEP:', error));
+            }
+        });
     </script>
 </body>
 </html>

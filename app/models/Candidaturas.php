@@ -13,7 +13,7 @@ class Candidaturas
 
     public function Registrar($cod, $cpf)
     {
-        $sql = "INSERT INTO {$this->table} (vagas_codigo, pessoas_fisicas_CPF) VALUES (:cod, :cpf)";
+        $sql = "INSERT INTO {$this->candidaturas} (vagas_codigo, pessoas_fisicas_CPF) VALUES (:cod, :cpf)";
         $stmt = $this->conn->prepare($sql);
 
         return $stmt->execute([
@@ -24,38 +24,37 @@ class Candidaturas
 
     public function FindVagas($cpf)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE pessoas_fisicas_CPF = :cpf";
-        $stmt = $this->conn->prepare($sql);
-        $stmt = $this->conn->execute([':cpf' => $cpf]);
+        $sql = "SELECT v.*
+            FROM vagas v
+            JOIN candidaturas c 
+            ON v.codigo = c.vagas_codigo
+            WHERE c.pessoas_fisicas_CPF = :cpf";
 
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result ? $result : null;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':cpf' => $cpf]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function FindCandidatos($cnpj)
     {
-        $sql = "SELECT codigo FROM {$this->vagas} WHERE pessoas_juridicas_cnpj = :cnpj";
+        $sql = "SELECT pf.*, v.nome AS vaga_nome, v.codigo AS vaga_id
+            FROM pessoas_fisicas pf
+            JOIN candidaturas c 
+                ON pf.CPF = c.pessoas_fisicas_CPF
+            JOIN vagas v 
+                ON v.codigo = c.vagas_codigo
+            WHERE v.pessoas_juridicas_cnpj = :cnpj";
+
         $stmt = $this->conn->prepare($sql);
-        $stmt = $this->conn->execute([':cnpj' => $cnpj]);
+        $stmt->execute([':cnpj' => $cnpj]);
 
-        $resultVagas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $result;
-
-        foreach ($resultVagas as $v)
-        {
-            $sql = "SELECT * FROM {$this->candidaturas} WHERE vagas_codigo = $v";
-            $stmt = $this->conn->prepare($sql);
-            $stmt = $this->conn->execute();
-
-            $result += $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-
-        return $result ? $result : null;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function All()
     {
-        $stmt = $this->conn->query("SELECT * FROM {$this->table}");
+        $stmt = $this->conn->query("SELECT * FROM {$this->candidaturas}");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

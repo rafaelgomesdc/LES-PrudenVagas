@@ -8,6 +8,7 @@ require_once __DIR__ . "/../pessoa-juridica/pjController.php";
 class VagasController
 {
     private $vagasModel;
+    private $pjModel;
 
     public function __construct()
     {
@@ -70,7 +71,7 @@ class VagasController
 
         if (isset($_GET['cod']))
         {
-            $this->vagasModel->Delete($cod);
+            $this->vagasModel->Delete($_GET['cod']);
         }
 
         require __DIR__ . "/../../views/pessoa-juridica/gerenciar-vagas.php";

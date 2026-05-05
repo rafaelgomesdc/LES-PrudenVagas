@@ -11,7 +11,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     <base href="<?= base_url ?>">
 
     <!-- Mantendo a padronização de estilos que você já usa -->
-     <link rel="stylesheet" href="style/style-table.css">
+    <link rel="stylesheet" href="style/style-table.css">
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
     <link rel="stylesheet" href="style/style-gerenciar.css">

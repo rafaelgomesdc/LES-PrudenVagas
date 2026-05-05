@@ -71,7 +71,7 @@ switch ($action)
         $vagasController->ViewVaga();
         break;
     case 'edit-vaga':
-        $vagasController->ViewEditar();
+        //$vagasController->ViewEditar();
         break;
     //Não logado
     case 'mural-vagas':

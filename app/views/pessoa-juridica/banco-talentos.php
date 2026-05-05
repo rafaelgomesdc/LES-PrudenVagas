@@ -10,55 +10,56 @@ if (session_status() !== PHP_SESSION_ACTIVE)
     
     <base href="<?= base_url ?>">
 
+    <link rel="stylesheet" href="style/style-table.css">
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
 
     <title>PrudenVagas</title>
 </head>
 <body>
-    <header>
+<header>
         <div class="header-content">
             <div class="identidade">
-                <img src="assets/img/proprio/logo.png">
+                <img src="assets/img/PrudenVagas.png" alt="Logo">
                 <h1>PrudenVagas</h1>
             </div>
-            <h2><a href="../login/select-login.html">Sair</a></h2>
+            <h2><a href="public/index.php?action=logout-pj">Sair</a></h2>
         </div>
     </header>
 
     <nav>
         <ul>
-            <a href="banco-talentos.html"><li>Banco de Talentos</li></a>
-            <a href="<?= base_url ?>public/index.php?action=gerenciar-vagas"><li>Suas Vagas</li></a>
-            <a href="perfil-empresa.html"><li>Perfil da Empresa</li></a>
+            <a href="public/index.php?action=banco-talentos"><li>Banco de Talentos</li></a>
+            <a href="public/index.php?action=gerenciar-vagas"><li>Suas Vagas</li></a>
+            <a href="public/index.php?action=view-perfil-pj"><li>Perfil da Empresa</li></a>
         </ul>
     </nav>
 
-    <section class="mural-candidatos">
-        <div class="container-mural-candidatos">
+    <section class="centro">
+        <div class="box">
             <?php if (!empty($candidatos)): ?>
                 <?php foreach ($candidatos as $candidato): ?>
-                    <div class="card-candidato">
-                        <a href="public/index.php?action=ver-perfil&id=<?= $candidato['CPF'] ?>">
-                            <img src="assets/img/logo-exemplo.png" alt="Foto de <?= htmlspecialchars($candidato['nome']) ?>">
-                            
-                            <h2><?= htmlspecialchars($candidato['nome'] . " " . $candidato['sobrenome']) ?></h2>
-                            
-                            <div class="interesses">
-                                <!-- Aqui você pode expandir para categorias reais do seu banco -->
-                                <h3>Candidato</h3>
-                                <h3>Disponível</h3>
-                            </div>
+                    <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                        <thead>
+                            <tr style="background-color: #f4f4f4;">
+                                <th>Nome</th>
+                                <th>Data Nascimento</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($candidatos as $v): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($v['nome']) ?></td>
+                                <td><?= htmlspecialchars($v['data_nasc']) ?></td>
+                                <td><?= htmlspecialchars($v['telefone']) ?></td>
+                                <td><?= htmlspecialchars($v['email']) ?></td>
 
-                            <p><strong>Cidade:</strong> <?= htmlspecialchars($candidato['cidade']) ?></p>
-                            
-                            <div class="biografia-resumo">
-                                <p><?= htmlspecialchars(substr($candidato['biografia'], 0, 80)) ?>...</p>
-                            </div>
-
-                            <p class="btn"><strong>Ver Perfil Completo</strong></p>
-                        </a>
-                    </div>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 <?php endforeach; ?>
             <?php else: ?>
                 <p>Nenhum candidato encontrado no momento.</p>

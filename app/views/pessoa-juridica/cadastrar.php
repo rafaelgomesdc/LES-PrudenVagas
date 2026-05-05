@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
 
     <base href="<?= base_url ?>">
     
-=======
-    
-    <base href="<?= base_url ?>">
-
->>>>>>> 2dfb2baeadf97681f67c1a297dafdfc9fdda42f9
     <link rel="stylesheet" href="style/style-cadastrar.css">
     <link rel="stylesheet" href="style/style-header.css">
     <link rel="stylesheet" href="style/style-base.css">
