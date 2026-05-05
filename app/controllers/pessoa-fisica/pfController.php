@@ -14,14 +14,14 @@ class PFController
     private $validadorCPF; // [NOVO] Propriedade para o serviço
 
     public function __construct()
-{
-    $database = new Database();
-    $db = $database->connect();
+    {
+        $database = new Database();
+        $db = $database->connect();
 
-    $this->pfModel = new PessoaFisica($db);
-    $this->vagasModel = new Vaga($db);
-        $this->candidaturasModel = new Candidaturas($db);
-}
+        $this->pfModel = new PessoaFisica($db);
+        $this->vagasModel = new Vaga($db);
+            $this->candidaturasModel = new Candidaturas($db);
+    }
 
     private function ChecarAutorizacao()
     {
@@ -73,7 +73,7 @@ class PFController
 
             if ($this->pfModel->Registrar($dados)) {
                 // Link de redirecionamento corrigido para usar a constante base_url
-                echo "<script>alert('Cadastro realizado!'); window.location.href='".base_url."index.php?action=view-login-pf';</script>";
+                echo "<script>alert('Cadastro realizado!'); window.location.href='".base_url."public/index.php?action=view-login-pf';</script>";
             } else {
                 echo "Erro ao registrar. O CPF pode já existir.";
             }

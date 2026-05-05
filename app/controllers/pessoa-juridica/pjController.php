@@ -9,6 +9,7 @@ class PJController
 {
     private $pjModel;
     private $vagasModel;
+    private $cModel;
 
     public function __construct()
     {
@@ -19,6 +20,7 @@ class PJController
 
         $this->pjModel = new PessoaJuridica($db);
         $this->vagasModel = new Vaga($db);
+        $this->cModel = new Candidaturas($db);
     }
 
     private function ChecarAutorizacao()
@@ -94,9 +96,8 @@ class PJController
     public function BancoTalentos()
     {
         $this->ChecarAutorizacao();
-            
-        $pfModel = new PessoaFisica($this->db);
-        $candidatos = $pfModel->All();
+
+        $candidatos = $this->cModel->FindCandidatos($_SESSION['usuario']);
 
         require __DIR__ . "/../../views/pessoa-juridica/banco-talentos.php";
     }

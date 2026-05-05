@@ -3,7 +3,8 @@
 class Candidaturas
 {
     private $conn;
-    private $table = 'candidaturas';
+    private $candidaturas = 'candidaturas';
+    private $vagas = 'vagas';
 
     public function __construct($db)
     {
@@ -21,7 +22,7 @@ class Candidaturas
         ]);
     }
 
-    public function ConsultarVagas($cpf)
+    public function FindVagas($cpf)
     {
         $sql = "SELECT * FROM {$this->table} WHERE pessoas_fisicas_CPF = :cpf";
         $stmt = $this->conn->prepare($sql);
@@ -31,13 +32,24 @@ class Candidaturas
         return $result ? $result : null;
     }
 
-    public function ConsultarCandidatos($vaga)
+    public function FindCandidatos($cnpj)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE vagas_codigo = :vaga";
+        $sql = "SELECT codigo FROM {$this->vagas} WHERE pessoas_juridicas_cnpj = :cnpj";
         $stmt = $this->conn->prepare($sql);
-        $stmt = $this->conn->execute([':vaga' => $vaga]);
+        $stmt = $this->conn->execute([':cnpj' => $cnpj]);
 
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultVagas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result;
+
+        foreach ($resultVagas as $v)
+        {
+            $sql = "SELECT * FROM {$this->candidaturas} WHERE vagas_codigo = $v";
+            $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->execute();
+
+            $result += $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         return $result ? $result : null;
     }
 
