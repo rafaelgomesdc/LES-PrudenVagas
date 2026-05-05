@@ -61,6 +61,7 @@ nav
 .login-box input[type="tel"],
 .login-box input[type="date"],
 .login-box input[type="number"],
+.login-box textarea,
 .login-box select {
     width: 60%;
     padding: 10px;
