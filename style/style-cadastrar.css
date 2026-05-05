@@ -1,0 +1,160 @@
+/*
+Cores
+    #F6F6F6
+    #E6E6E6
+    #E6E6E6
+    #CACACA
+*/
+
+/*Nav*/
+nav
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #861be4;
+    justify-content: center;
+}
+
+/*Caixa de cadastro*/
+.centro{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: auto;
+    border: 2px #015958;
+    margin: 0%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    border: 2px #015958;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 1% 0% 1% 0%;
+}
+
+.login-box {
+    background: white;
+    width: 80%;
+    padding: 5px 0px 40px 0px;
+    border: 2px #015958;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #015958;
+    text-align: center;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"],
+.login-box input[type="text"],
+.login-box input[type="tel"],
+.login-box input[type="date"],
+.login-box input[type="number"],
+.login-box textarea,
+.login-box select {
+    width: 60%;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.cep{
+    width: 60%;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-box input[type="file"]{
+    display: inline-block;
+    border: 1px solid lightskyblue;
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px;
+    color: #015958;
+}
+
+#botao{
+    width: auto;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.login-box input[type="file"] {
+    display: none;
+}
+  
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #015958;
+    border-radius: 6px;
+    color: #015958;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+  
+.custom-file-upload:hover {
+    background: #015958;
+    color: white;
+}
+
+.login-box label{
+    color: #015958;
+    margin-top: 10px;
+}
+
+.menu{
+    width: 100%;
+}
+
+.menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    background-color: rgb(115, 115, 115);
+}
+
+.menu ul li{
+    display: inline;
+}
+
+.menu ul li a{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+}
+
+.menu ul li a:hover{
+    background-color: rgb(255, 112, 99);
+}
+
+.label-data {
+    color: #015958;
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}

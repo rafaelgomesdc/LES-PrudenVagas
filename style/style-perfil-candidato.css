@@ -1,0 +1,55 @@
+/*CORES*/
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+/*PERFIL CANDIDATO*/
+.perfil-candidato
+{
+    display: flex;
+    justify-content: center;
+}
+.container-perfil-candidato
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 60%;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+/*BLOCO ESQUERDO*/
+.bloco-esquerdo
+{
+    width: 20%;
+    border-right: 1px solid;
+    border-color: #A47ACA;
+    padding-right: 5%;
+}
+
+.img-perfil
+{
+    border-radius: 100%;
+    width: 100%;
+    height: auto;
+}
+
+/*BLOCO DIREITO*/
+.bloco-direito
+{
+    width: 65%;
+    margin-right: 5%;
+}
+
+.bloco-direito-biografia
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #A47ACA;
+}

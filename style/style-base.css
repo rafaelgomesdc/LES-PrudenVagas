@@ -1,0 +1,177 @@
+/*CORES*/
+/* Color Theme Swatches in Hex */
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+/* Color Theme Swatches in RGBA */
+.PrudenVagas-1-rgba { color: rgba(99, 31, 166, 1); }
+.PrudenVagas-2-rgba { color: rgba(138, 84, 191, 1); }
+.PrudenVagas-3-rgba { color: rgba(72, 54, 191, 1); }
+.PrudenVagas-4-rgba { color: rgba(20, 61, 115, 1); }
+.PrudenVagas-5-rgba { color: rgba(164, 122, 202, 1); }
+
+/* Color Theme Swatches in HSLA */
+.PrudenVagas-1-hsla { color: hsla(270, 68, 38, 1); }
+.PrudenVagas-2-hsla { color: hsla(270, 45, 53, 1); }
+.PrudenVagas-3-hsla { color: hsla(247, 55, 48, 1); }
+.PrudenVagas-4-hsla { color: hsla(214, 70, 26, 1); }
+.PrudenVagas-5-hsla { color: hsla(271, 43, 63, 1); }
+
+
+/*Geral*/
+body
+{
+    font-family: 'Andale Mono', monospace;
+    margin: 0;
+    background-color: lightgray;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main section
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.space-fix
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+#botao{
+    max-width: fit-content;
+    width: auto;
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*Footer*/
+footer
+{
+    background-color: rgb(255, 255, 255);
+    /*margin: 0;*/
+    margin-top: auto;
+    width: 100%;
+}
+
+footer .rodape
+{
+    background-color: rgb(255, 253, 253);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.atendimento{
+    margin: 1.041% 0% 0% 10%;
+    color: #505050;
+    font-size: 85%;
+    width: auto;
+    height: auto;
+}
+
+.sobre{
+    margin: 1.041% 0% 0% 5%;
+    color: #505050;
+    font-size: 85%;
+}
+
+.rodape div
+{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rodape a
+{
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+.pag{
+    margin: 1.041% 0% 0% 5%;
+    width: 250px;
+    color: #505050;
+    font-size: 85%;
+}
+
+.formas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 250px;
+}
+
+.formas img{
+    width: 50px;
+    height: auto;
+    margin: 10px;
+}
+
+.sociais{
+    margin: 1.041% 5% 0% 1%;
+    color: #505050;
+    font-size: 85%;
+    width: auto;
+    height: auto;
+}
+
+.sociais-img{
+    align-items: center;
+    display: flex;
+    flex: 1;
+}
+
+.sociais-img img{
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+}
+
+.downloads img{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+}
+.downloads{
+    margin: 1.041% 15% 0% 7%;
+    color: #505050;
+    font-size: 85%;
+    width: 100px;
+    height: auto;
+}
+
+footer .direitos
+{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    width: 80%;
+    margin: 0;
+    padding: 1%;
+    border-top: 1px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: darkgray;
+    border-style: solid;
+    font-size: 12px;
+    color: #505050;;
+}

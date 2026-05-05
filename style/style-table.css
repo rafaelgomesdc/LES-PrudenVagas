@@ -1,0 +1,48 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    border: 2px #015958;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 1% 0% 1% 0%;
+    justify-self: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #4836BF;
+  color: white;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+caption {
+  caption-side: top;
+  font-size: 1.5em;
+  margin: 10px;
+  font-weight: bold;
+}

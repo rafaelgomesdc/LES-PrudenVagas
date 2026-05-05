@@ -1,0 +1,101 @@
+/*CORES*/
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+header
+{
+    width: 100%;
+    background-color: #4836BF;
+    color: white;
+
+    flex-shrink: 0;
+}
+
+header li, header a
+{
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+
+/*CABECALHO*/
+header .header-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 5%; 
+    min-height: 70px; 
+}
+
+header .identidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-content img 
+{
+    max-height: 50px;
+}
+
+header h1, header h2 {
+    margin: 0;
+}
+
+/*NAVEGACAO*/
+nav
+{
+    background-color: #8A54BF;
+
+    flex-shrink: 0;
+}
+
+nav li, nav a
+{
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+
+nav ul
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav li{ padding: 15px;}
+
+nav li:hover
+{
+    background-color: #4836BF;
+}
+
+nav .nav-element-drop-content
+{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #8A54BF;
+    min-width: 200px;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+.nav-element-drop-content a {padding: 15px;}
+
+nav .nav-element-drop:hover div
+{
+    display: flex;
+}
+
+.nav-element-drop-content a:hover
+{
+    background-color: #4836BF;
+}

@@ -1,0 +1,21 @@
+/*CORES*/
+.PrudenVagas-1-hex { color: #631FA6; }
+.PrudenVagas-2-hex { color: #8A54BF; }
+.PrudenVagas-3-hex { color: #4836BF; }
+.PrudenVagas-4-hex { color: #143D73; }
+.PrudenVagas-5-hex { color: #A47ACA; }
+
+/*MURAL DE VAGAS*/
+.mural-vagas
+{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex: 1 1;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
