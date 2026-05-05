@@ -65,7 +65,6 @@ if (session_status() !== PHP_SESSION_ACTIVE)
                             <td><?= htmlspecialchars($v['quantidade']) ?></td>
                             <td>
                                 <!-- Links ajustados para passar o ID via URL para o Controller -->
-                                <a href="public/index.php?action=edit-vaga&cod=<?= $v['codigo'] ?>" style="color: blue;">Editar</a> | 
                                 <a href="public/index.php?action=delete-vaga&cod=<?= $v['codigo'] ?>" 
                                    style="color: red;" 
                                    onclick="return confirm('Tem certeza que deseja excluir esta vaga?')">Excluir</a>
